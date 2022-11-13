@@ -30,7 +30,7 @@ I made a web application that allows the user to search for gifs. The same user 
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Gifs%20app%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Gifs%20App%20Page`
 
 ## Video
 
