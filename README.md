@@ -16,21 +16,9 @@ I made a web application that allows the user to search for gifs. The same user 
 1. React JS
 2. CSS3
 
-## Galery
-
-![Gifs-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/gifappreact-0.jpg)
-
-![Gifs-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/gifappreact-1.jpg)
-
-![Gifs-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/gifappreact-2.jpg)
-
-![Gifs-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/gifappreact-3.jpg)
-
-![Gifs-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/gifappreact-4.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Gifs%20App%20Page`
+[`https://www.diegolibonati.com.ar/#/project/25`](https://www.diegolibonati.com.ar/#/project/25)
 
 ## Video
 
