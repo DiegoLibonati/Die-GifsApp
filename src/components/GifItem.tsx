@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+import { useRef } from "react";
+import { GifItemProps } from "../entities/entities";
 
 export const GifItem = ({
   title,
@@ -9,24 +10,32 @@ export const GifItem = ({
   avatarProfileUrl,
   gifDownload,
   setShowImg,
-}) => {
-  const handleShowImg = (e) => {
-    const imgSrc = e.target.parentNode.parentNode.children[0].children[0].src;
-    const imgAlt = e.target.parentNode.parentNode.children[0].children[0].alt;
+}: GifItemProps): JSX.Element => {
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const handleShowImg: React.MouseEventHandler<HTMLParagraphElement> = (e) => {
+    const imgSrc = imageRef.current!.src;
+    const imgAlt = imageRef.current!.alt;
     setShowImg([imgSrc, imgAlt]);
 
-    const containerShowImg =
-      e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
-        .lastChild;
+    const target = e.target as HTMLElement;
 
-    containerShowImg.style.display = "Flex";
+    const containerShowImg = target?.parentNode?.parentNode?.parentNode
+      ?.parentNode?.parentNode?.parentNode?.lastChild as HTMLElement;
+
+    containerShowImg!.style.display = "Flex";
     document.body.style.overflow = "Hidden";
   };
 
   return (
     <div className="gifs_container_category_list_card">
       <div className="gifs_container_category_list_card_img">
-        <img data-testid="test-title" src={url} alt={title}></img>
+        <img
+          data-testid="test-title"
+          src={url}
+          alt={title}
+          ref={imageRef}
+        ></img>
         <div className="gifs_container_category_list_card_img_description">
           <div className="gifs_container_category_list_card_img_description_header">
             <img src={avatar} alt={avatarName}></img>
@@ -48,20 +57,3 @@ export const GifItem = ({
     </div>
   );
 };
-
-GifItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  avatarName: PropTypes.string.isRequired,
-  avatarDescription: PropTypes.string.isRequired,
-  avatarProfileUrl: PropTypes.string.isRequired,
-  gifDownload: PropTypes.string.isRequired,
-  setShowImg: PropTypes.func.isRequired,
-};
-
-/* GifItem.defaultProps = {
-  // Si no se le pasa nada a las props, se cargan esto de forma default
-  title: "Gif",
-  url: "...",
-}; */

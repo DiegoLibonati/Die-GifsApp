@@ -14,7 +14,8 @@ I made a web application that allows the user to search for gifs. The same user 
 ## Technologies used
 
 1. React JS
-2. CSS3
+2. Typescript
+3. CSS3
 
 ## Portfolio Link
 
@@ -26,44 +27,58 @@ https://user-images.githubusercontent.com/99032604/199622812-e16c172a-1481-4a8d-
 
 ## Documentation
 
-### hooks/useFetchGif.js
+### hooks/useFetchGif.tsx
 
 In this route we will find the only CustomHook of this application, this CustomHook is `useFetchGif` allows to obtain the information of the API to be able to render it later:
 
 ```
-export const useFetchGif = (category, howManyGifs) => {
-  const [imagenes, setImagenes] = useState([]);
-  const [loading, setLoading] = useState(true);
+import { useEffect, useState } from "react";
+import { getGifs } from "../api/getGifs";
+import { Gif, MinGif, UseFetchGif } from "../entities/entities";
+
+export const useFetchGif = (
+  category: string,
+  numberOfGifs: number
+): UseFetchGif => {
+  const [images, setImages] = useState<MinGif[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getImages = async () => {
-    const newImages = await getGifs(category, howManyGifs);
-    setImagenes(newImages);
+    const newImages = await getGifs(category, numberOfGifs);
+
+    setImages(newImages);
     setLoading(false);
   };
 
   useEffect(() => {
     getImages();
-  }, []); // ejecutara getgifs. Si el [[ ] queda vacio, se carga una vez sola. Si pasamos [counter] -> counter se va a renderizar y modificara su estado por ende llamara otra vez esa funcion
+  }, []);
 
   return {
-    imagenes,
+    images,
     loading,
   };
 };
 ```
 
-### helpers/getGifs.js
+### api/getGifs.ts
 
 It is a function that will allow us to obtain all the gifs of the category that we pass to it as a parameter:
 
 ```
-export const getGifs = async (category, howManyGifs) => {
-  const API_KEY = "kIPZq4OKN6AFRmzsALTEikjodezyTP7F";
-  const limitGifs = howManyGifs;
+import { Gif, MinGif } from "../entities/entities";
+
+export const getGifs = async (
+  category: string,
+  numberOfGifs: number
+): Promise<MinGif[]> => {
+  // @ts-ignore:next-line
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const limitGifs = numberOfGifs;
   const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${category}&limit=${limitGifs}&offset=0&rating=r&lang=en`;
 
-  const resp = await fetch(url);
-  const { data } = await resp.json(); // Obtenemos data unicamente de la respuesta
+  const request = await fetch(url);
+  const { data }: { data: Gif[] } = await request.json(); // Obtenemos data unicamente de la respuesta
 
   try {
     const gifs = data.map((img) => ({
@@ -95,61 +110,35 @@ export const getGifs = async (category, howManyGifs) => {
 };
 ```
 
-### helpers/getRandomGifsCategory.js
+### api/getRandomGifsCategory.ts
 
 It is a function that will allow us to obtain a category of gifs randomly:
 
 ```
-export const getRandomGifsCategory = async () => {
-  const API_KEY = "kIPZq4OKN6AFRmzsALTEikjodezyTP7F";
+import { Gif } from "../entities/entities";
+
+export const getRandomGifsCategory = async (): Promise<string> => {
+  // @ts-ignore:next-line
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
 
-  const resp = await fetch(url);
-  const { data } = await resp.json(); // Obtenemos data unicamente de la respuesta
+  const request = (await fetch(url)).json();
 
-  const gifTitle = await data.title;
+  const { data }: { data: Gif } = await request;
+
+  const gifTitle = data.title;
 
   return gifTitle;
 };
 ```
 
-### helpers/removeAllCategories.js
 
-It is a function that will allow us to delete all the gifs, that is, to be able to empty the state that we pass to it as a parameter:
+### components/Main.tsx
 
-```
-export const removeAllCategories = (categories, setCategories) => {
-  categories = [];
-  setCategories(categories);
-  return categories;
-};
-```
-
-### helpers/removeCategory.js
-
-It is a function that will allow to remove a category from the state that we pass to it as a parameter, it will remove that specific category only:
+In addition to other components in the `components` folder, we are going to highlight the `Main.tsx` component since it is one of the main ones and it also has 3 important states that we handle. The `categories` state will be an array that will contain all our categories, the `howManyGif` state with which we can modify the number of gifs that we bring with each call to the API and finally the `showImg` that will serve as a modal to show a specific gif:
 
 ```
-export const removeCategory = (e, categories, resetCategory) => {
-  const categoryName =
-    e.target.parentElement.parentElement.children[0].outerText;
-
-  for (let i = 0; i < categories.length; i++) {
-    if (categoryName === categories[i]) {
-      categories.splice(categories.indexOf(categoryName), 1);
-    }
-  }
-
-  return resetCategory([...categories]);
-};
-```
-
-### components/Main.jsx
-
-In addition to other components in the `components` folder, we are going to highlight the `Main.jsx` component since it is one of the main ones and it also has 3 important states that we handle. The `categories` state will be an array that will contain all our categories, the `howManyGif` state with which we can modify the number of gifs that we bring with each call to the API and finally the `showImg` that will serve as a modal to show a specific gif:
-
-```
-const [categories, setCategories] = useState([]);
-const [howManyGif, setHowManyGif] = useState(10);
-const [showImg, setShowImg] = useState([]);
+const [categories, setCategories] = useState<string[]>([]);
+const [howManyGif, setHowManyGif] = useState<number>(10);
+const [showImg, setShowImg] = useState<string[]>([]);
 ```

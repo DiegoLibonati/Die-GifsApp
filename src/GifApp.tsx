@@ -1,8 +1,7 @@
-import React from "react";
 import { Header } from "./components/Header";
 import { Main } from "./components/Main";
 
-export const GifApp = () => {
+export const GifApp = (): JSX.Element => {
   return (
     <>
       {/* Header */}
