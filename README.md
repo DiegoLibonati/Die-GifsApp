@@ -1,4 +1,4 @@
-# Gifs-App-Page
+# Die-GifsApp
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ I made a web application that allows the user to search for gifs. The same user 
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/25`](https://www.diegolibonati.com.ar/#/project/25)
+[`https://www.diegolibonati.com.ar/#/project/Die-GifsApp`](https://www.diegolibonati.com.ar/#/project/Die-GifsApp)
 
 ## Video
 
