@@ -4,13 +4,11 @@ export const getGifs = async (
   category: string,
   numberOfGifs: number
 ): Promise<MinGif[]> => {
-  // @ts-ignore:next-line
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const limitGifs = numberOfGifs;
-  const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${category}&limit=${limitGifs}&offset=0&rating=r&lang=en`;
+  const url = `/v1/gifs/search?api_key=${API_KEY}&q=${category}&limit=${numberOfGifs}&offset=0&rating=r&lang=en`;
 
   const request = await fetch(url);
-  const { data }: { data: Gif[] } = await request.json(); // Obtenemos data unicamente de la respuesta
+  const { data }: { data: Gif[] } = await request.json();
 
   try {
     const gifs = data.map((img) => ({

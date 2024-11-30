@@ -6,17 +6,17 @@ export const Header = (): JSX.Element => {
       <nav className="header_container_nav">
         <ul className="header_container_nav_ul">
           <li className="header_container_nav_ul_li">
-            <a href="#">
+            <a href="#" aria-label="go to facebook" target="_blank">
               <BsFacebook className="icon" />
             </a>
           </li>
           <li className="header_container_nav_ul_li">
-            <a href="#">
+            <a href="#" aria-label="go to instagram" target="_blank">
               <BsInstagram className="icon" />
             </a>
           </li>
           <li className="header_container_nav_ul_li">
-            <a href="#">
+            <a href="#" aria-label="go to github" target="_blank">
               <BsGithub className="icon" />
             </a>
           </li>

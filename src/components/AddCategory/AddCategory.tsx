@@ -1,6 +1,12 @@
 import React, { useState } from "react";
-import { InputsForm } from "./InputsForm";
-import { AddCategoryProps } from "../entities/entities";
+
+import { InputForm } from "../InputForm/InputForm";
+
+interface AddCategoryProps {
+  numberOfGifs: number;
+  setNumberOfGifs: (howManyGif: number) => void;
+  addCategory: (value: string) => void;
+}
 
 export const AddCategory = ({
   numberOfGifs,
@@ -23,34 +29,38 @@ export const AddCategory = ({
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e): void => {
     e.preventDefault();
-    if (inputValue.length > 0) {
-      setNumberOfGifs(numberOfGifs);
-      addCategory(inputValue.trim()); // Trim borra el espacio en blanco adelante y atras
-      setInputValue("");
-    }
-    return;
+
+    if (!inputValue.trim()) return;
+
+    setNumberOfGifs(numberOfGifs);
+    addCategory(inputValue.trim());
+    setInputValue("");
   };
 
   return (
     <article className="gifs_container_form">
       <form onSubmit={handleSubmit}>
-        <InputsForm
+        <InputForm
           type="text"
           placeholder="Buscar Gif"
           value={inputValue}
           className="gifs_container_form_inputValue"
           onChange={handleInputChange}
-        ></InputsForm>
+        ></InputForm>
 
-        <InputsForm
+        <InputForm
           type="number"
           placeholder=""
           value={numberOfGifs}
           className="gifs_container_form_inputValueNumber"
           onChange={handleInputNumberChange}
-        ></InputsForm>
+        ></InputForm>
 
-        <button type="submit" className="gifs_container_form_button">
+        <button
+          type="submit"
+          className="gifs_container_form_button"
+          aria-label="search gifs"
+        >
           GO
         </button>
       </form>

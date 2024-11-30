@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
+
+import { MinGif } from "../entities/entities";
+
 import { getGifs } from "../api/getGifs";
-import { Gif, MinGif, UseFetchGif } from "../entities/entities";
+
+type UseFetchGif = {
+  images: MinGif[];
+  loading: boolean;
+};
 
 export const useFetchGif = (
   category: string,
   numberOfGifs: number
 ): UseFetchGif => {
   const [images, setImages] = useState<MinGif[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const getImages = async () => {
     const newImages = await getGifs(category, numberOfGifs);
@@ -17,11 +24,12 @@ export const useFetchGif = (
   };
 
   useEffect(() => {
+    setLoading(true);
     getImages();
   }, []);
 
   return {
-    images,
-    loading,
+    images: images,
+    loading: loading,
   };
 };
