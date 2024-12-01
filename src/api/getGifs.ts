@@ -1,10 +1,12 @@
 import { Gif, MinGif } from "../entities/entities";
 
+import { CONFIG } from "../constants/config";
+
 export const getGifs = async (
   category: string,
   numberOfGifs: number
 ): Promise<MinGif[]> => {
-  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY = CONFIG.VITE_API_KEY;
   const url = `/v1/gifs/search?api_key=${API_KEY}&q=${category}&limit=${numberOfGifs}&offset=0&rating=r&lang=en`;
 
   const request = await fetch(url);

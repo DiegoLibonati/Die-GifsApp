@@ -1,7 +1,9 @@
 import { Gif } from "../entities/entities";
 
+import { CONFIG } from "../constants/config";
+
 export const getRandomGifsCategory = async (): Promise<string> => {
-  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY = CONFIG.VITE_API_KEY;
   const url = `/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
 
   const request = (await fetch(url)).json();

@@ -173,7 +173,7 @@ export type Gif = {
       size: string;
       url: string;
     };
-    hd: {
+    hd?: {
       height: string;
       width: string;
       mp4_size: string;
@@ -196,7 +196,7 @@ export type Gif = {
     description: string;
     instagram_url: string;
     website_url: string;
-    is_verified: false;
+    is_verified: boolean;
   };
   analytics_response_payload: string;
   analytics: {
@@ -210,6 +210,7 @@ export type Gif = {
       url: string;
     };
   };
+  alt_text: string;
 };
 
 export type MinGif = {
@@ -221,4 +222,9 @@ export type MinGif = {
   avatarDescription: string;
   avatarProfileUrl: string;
   gifDownload: string;
+};
+
+export type Config = {
+  VITE_API_URL: string;
+  VITE_API_KEY: string;
 };

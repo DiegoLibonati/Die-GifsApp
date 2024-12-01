@@ -22,10 +22,10 @@ export const GifItem = ({
   return (
     <div className="gifs_container_category_list_card">
       <div className="gifs_container_category_list_card_img">
-        <img data-testid="test-title" src={url} alt={title}></img>
+        <img id="gif" src={url} alt={title}></img>
         <div className="gifs_container_category_list_card_img_description">
           <div className="gifs_container_category_list_card_img_description_header">
-            <img src={avatar} alt={avatarName}></img>
+            <img id="avatar" src={avatar} alt={avatarName}></img>
             <h3>{avatarName}</h3>
           </div>
           <p>{avatarDescription}</p>
