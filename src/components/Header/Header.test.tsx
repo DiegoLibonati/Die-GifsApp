@@ -14,25 +14,29 @@ const renderComponent = (): RenderComponent => {
   };
 };
 
-test("It must render the application header with the three links to redirect.", () => {
-  const { container } = renderComponent();
+describe("Header.tsx", () => {
+  describe("General Tests.", () => {
+    test("It must render the application header with the three links to redirect.", () => {
+      const { container } = renderComponent();
 
-  const header = container.querySelector(".header_container");
-  const nav = screen.getByRole("navigation");
-  const list = screen.getByRole("list");
-  const listItems = screen.getAllByRole("listitem");
+      const header = container.querySelector(".header");
+      const nav = screen.getByRole("navigation");
+      const list = screen.getByRole("list");
+      const listItems = screen.getAllByRole("listitem");
 
-  expect(header).toBeInTheDocument();
-  expect(nav).toBeInTheDocument();
-  expect(list).toBeInTheDocument();
+      expect(header).toBeInTheDocument();
+      expect(nav).toBeInTheDocument();
+      expect(list).toBeInTheDocument();
 
-  for (let listItem of listItems) {
-    expect(listItem).toBeInTheDocument();
+      for (let listItem of listItems) {
+        expect(listItem).toBeInTheDocument();
 
-    const anchor = within(listItem).getByRole("link");
+        const anchor = within(listItem).getByRole("link");
 
-    expect(anchor).toBeInTheDocument();
-    expect(anchor).toHaveAttribute("target", "_blank");
-    expect(anchor.children).toHaveLength(1);
-  }
+        expect(anchor).toBeInTheDocument();
+        expect(anchor).toHaveAttribute("target", "_blank");
+        expect(anchor.children).toHaveLength(1);
+      }
+    });
+  });
 });

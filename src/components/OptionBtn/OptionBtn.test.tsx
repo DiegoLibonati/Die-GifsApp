@@ -27,26 +27,30 @@ const renderComponent = (): RenderComponent => {
   };
 };
 
-test("It must render a button with its respective description.", () => {
-  const { props } = renderComponent();
+describe("OptionBtn.tsx", () => {
+  describe("General Tests.", () => {
+    test("It must render a button with its respective description.", () => {
+      const { props } = renderComponent();
 
-  const btn = screen.getByRole("button", {
-    name: `${props.description} button`,
+      const btn = screen.getByRole("button", {
+        name: `${props.description} button`,
+      });
+
+      expect(btn).toBeInTheDocument();
+      expect(btn).toHaveTextContent(props.description);
+    });
+
+    test("It must execute the function that is passed to it by props.", async () => {
+      const { props } = renderComponent();
+
+      const btn = screen.getByRole("button", {
+        name: `${props.description} button`,
+      });
+
+      await user.click(btn);
+
+      expect(btn).toBeInTheDocument();
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+    });
   });
-
-  expect(btn).toBeInTheDocument();
-  expect(btn).toHaveTextContent(props.description);
-});
-
-test("It must execute the function that is passed to it by props.", async () => {
-  const { props } = renderComponent();
-
-  const btn = screen.getByRole("button", {
-    name: `${props.description} button`,
-  });
-
-  await user.click(btn);
-
-  expect(btn).toBeInTheDocument();
-  expect(props.onClick).toHaveBeenCalledTimes(1);
 });

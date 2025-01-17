@@ -20,11 +20,11 @@ export const GifItem = ({
   handleOpenModalImage,
 }: GifItemProps): JSX.Element => {
   return (
-    <div className="gifs_container_category_list_card">
-      <div className="gifs_container_category_list_card_img">
+    <div className="gif__card">
+      <div className="gif__card__wrapper">
         <img id="gif" src={url} alt={title}></img>
-        <div className="gifs_container_category_list_card_img_description">
-          <div className="gifs_container_category_list_card_img_description_header">
+        <div className="gif__card__wrapper__description">
+          <div className="gif__card__wrapper__description__header">
             <img id="avatar" src={avatar} alt={avatarName}></img>
             <h3>{avatarName}</h3>
           </div>
@@ -42,7 +42,7 @@ export const GifItem = ({
         </div>
       </div>
 
-      <div className="gifs_container_category_list_card_div">
+      <div className="gif__card__title">
         <p onClick={() => handleOpenModalImage(url, title)}>{title}</p>
       </div>
     </div>

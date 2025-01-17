@@ -38,13 +38,13 @@ export const AddCategory = ({
   };
 
   return (
-    <article className="gifs_container_form">
+    <article className="form__wrapper__gifs">
       <form onSubmit={handleSubmit}>
         <InputForm
           type="text"
           placeholder="Buscar Gif"
           value={inputValue}
-          className="gifs_container_form_inputValue"
+          className="form__wrapper__gifs__input__text"
           onChange={handleInputChange}
         ></InputForm>
 
@@ -52,13 +52,13 @@ export const AddCategory = ({
           type="number"
           placeholder=""
           value={numberOfGifs}
-          className="gifs_container_form_inputValueNumber"
+          className="form__wrapper__gifs__input__number"
           onChange={handleInputNumberChange}
         ></InputForm>
 
         <button
           type="submit"
-          className="gifs_container_form_button"
+          className="form__wrapper__gifs__btn"
           aria-label="search gifs"
         >
           GO

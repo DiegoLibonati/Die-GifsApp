@@ -39,27 +39,31 @@ const renderComponent = (): RenderComponent => {
   };
 };
 
-test("It must render the input with the respective props.", () => {
-  const { props } = renderComponent();
+describe("InputForm.tsx", () => {
+  describe("General Tests.", () => {
+    test("It must render the input with the respective props.", () => {
+      const { props } = renderComponent();
 
-  const input = screen.getByRole("textbox");
+      const input = screen.getByRole("textbox");
 
-  expect(input).toBeInTheDocument();
-  expect(input).toHaveAttribute("type", props.type);
-  expect(input).toHaveAttribute("value", props.value);
-  expect(input).toHaveAttribute("placeholder", props.placeholder);
-  expect(input).toHaveClass(props.className);
-});
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute("type", props.type);
+      expect(input).toHaveAttribute("value", props.value);
+      expect(input).toHaveAttribute("placeholder", props.placeholder);
+      expect(input).toHaveClass(props.className);
+    });
 
-test("It must change input value when written to it.", async () => {
-  const value = "Hi3";
+    test("It must change input value when written to it.", async () => {
+      const value = "Hi3";
 
-  const { props } = renderComponent();
+      const { props } = renderComponent();
 
-  const input = screen.getByRole("textbox") as HTMLInputElement;
+      const input = screen.getByRole("textbox") as HTMLInputElement;
 
-  await user.click(input);
-  await user.keyboard(value);
+      await user.click(input);
+      await user.keyboard(value);
 
-  expect(props.onChange).toHaveBeenCalledTimes(value.length);
+      expect(props.onChange).toHaveBeenCalledTimes(value.length);
+    });
+  });
 });

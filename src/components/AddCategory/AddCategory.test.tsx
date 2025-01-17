@@ -33,92 +33,96 @@ const renderComponent = (): RenderComponent => {
   };
 };
 
-test("It must render the form with the inputs and the submit button.", () => {
-  const { container, props } = renderComponent();
+describe("AddCategory.tsx", () => {
+  describe("General Tests.", () => {
+    test("It must render the form with the inputs and the submit button.", () => {
+      const { container, props } = renderComponent();
 
-  const form = container.querySelector("form");
-  const inputText = screen.getByRole("textbox");
-  const inputNumber = container.querySelector(
-    ".gifs_container_form_inputValueNumber"
-  ) as HTMLInputElement;
-  const button = screen.getByRole("button", { name: /search gifs/i });
+      const form = container.querySelector("form");
+      const inputText = screen.getByRole("textbox");
+      const inputNumber = container.querySelector(
+        ".form__wrapper__gifs__input__number"
+      ) as HTMLInputElement;
+      const button = screen.getByRole("button", { name: /search gifs/i });
 
-  expect(form).toBeInTheDocument();
-  expect(inputText).toBeInTheDocument();
-  expect(inputText).toHaveAttribute("type", "text");
-  expect(inputText).toHaveAttribute("placeholder", "Buscar Gif");
-  expect(inputText).not.toHaveValue();
-  expect(inputNumber).toBeInTheDocument();
-  expect(inputNumber).toHaveValue(props.numberOfGifs);
-  expect(inputNumber).toHaveAttribute("type", "number");
-  expect(inputNumber).toHaveAttribute("placeholder", "");
-  expect(button).toBeInTheDocument();
-});
+      expect(form).toBeInTheDocument();
+      expect(inputText).toBeInTheDocument();
+      expect(inputText).toHaveAttribute("type", "text");
+      expect(inputText).toHaveAttribute("placeholder", "Buscar Gif");
+      expect(inputText).not.toHaveValue();
+      expect(inputNumber).toBeInTheDocument();
+      expect(inputNumber).toHaveValue(props.numberOfGifs);
+      expect(inputNumber).toHaveAttribute("type", "number");
+      expect(inputNumber).toHaveAttribute("placeholder", "");
+      expect(button).toBeInTheDocument();
+    });
 
-test("It must change the value of the inputs when you edit its content.", async () => {
-  const InputTextValue = "Valuecito";
+    test("It must change the value of the inputs when you edit its content.", async () => {
+      const InputTextValue = "Valuecito";
 
-  const { container, props } = renderComponent();
+      const { container, props } = renderComponent();
 
-  const inputText = screen.getByRole("textbox");
-  const inputNumber = container.querySelector(
-    ".gifs_container_form_inputValueNumber"
-  ) as HTMLInputElement;
+      const inputText = screen.getByRole("textbox");
+      const inputNumber = container.querySelector(
+        ".form__wrapper__gifs__input__number"
+      ) as HTMLInputElement;
 
-  expect(inputText).toBeInTheDocument();
-  expect(inputNumber).toBeInTheDocument();
-  expect(inputNumber).toHaveValue(props.numberOfGifs);
+      expect(inputText).toBeInTheDocument();
+      expect(inputNumber).toBeInTheDocument();
+      expect(inputNumber).toHaveValue(props.numberOfGifs);
 
-  await user.clear(inputText);
-  await user.click(inputText);
-  await user.keyboard(InputTextValue);
+      await user.clear(inputText);
+      await user.click(inputText);
+      await user.keyboard(InputTextValue);
 
-  expect(inputText).toHaveValue(InputTextValue);
-});
+      expect(inputText).toHaveValue(InputTextValue);
+    });
 
-test("The submit functions should not be executed if an empty value is entered in the text.", async () => {
-  const { props } = renderComponent();
+    test("The submit functions should not be executed if an empty value is entered in the text.", async () => {
+      const { props } = renderComponent();
 
-  const inputText = screen.getByRole("textbox");
-  const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
+      const inputText = screen.getByRole("textbox");
+      const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
 
-  expect(inputText).toBeInTheDocument();
-  expect(buttonSubmit).toBeInTheDocument();
+      expect(inputText).toBeInTheDocument();
+      expect(buttonSubmit).toBeInTheDocument();
 
-  await user.clear(inputText);
-  await user.click(buttonSubmit);
+      await user.clear(inputText);
+      await user.click(buttonSubmit);
 
-  expect(props.addCategory).toHaveBeenCalledTimes(0);
-  expect(props.setNumberOfGifs).toHaveBeenCalledTimes(0);
-});
+      expect(props.addCategory).toHaveBeenCalledTimes(0);
+      expect(props.setNumberOfGifs).toHaveBeenCalledTimes(0);
+    });
 
-test("The functions within the submit must be executed when the submit button is clicked.", async () => {
-  const InputTextValue = "Valuecito";
+    test("The functions within the submit must be executed when the submit button is clicked.", async () => {
+      const InputTextValue = "Valuecito";
 
-  const { container, props } = renderComponent();
+      const { container, props } = renderComponent();
 
-  const inputText = screen.getByRole("textbox");
-  const inputNumber = container.querySelector(
-    ".gifs_container_form_inputValueNumber"
-  ) as HTMLInputElement;
-  const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
+      const inputText = screen.getByRole("textbox");
+      const inputNumber = container.querySelector(
+        ".form__wrapper__gifs__input__number"
+      ) as HTMLInputElement;
+      const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
 
-  expect(inputText).toBeInTheDocument();
-  expect(inputNumber).toBeInTheDocument();
-  expect(inputNumber).toHaveValue(props.numberOfGifs);
-  expect(buttonSubmit).toBeInTheDocument();
+      expect(inputText).toBeInTheDocument();
+      expect(inputNumber).toBeInTheDocument();
+      expect(inputNumber).toHaveValue(props.numberOfGifs);
+      expect(buttonSubmit).toBeInTheDocument();
 
-  await user.clear(inputText);
-  await user.click(inputText);
-  await user.keyboard(InputTextValue);
+      await user.clear(inputText);
+      await user.click(inputText);
+      await user.keyboard(InputTextValue);
 
-  expect(inputText).toHaveValue(InputTextValue);
+      expect(inputText).toHaveValue(InputTextValue);
 
-  await user.click(buttonSubmit);
+      await user.click(buttonSubmit);
 
-  expect(props.addCategory).toHaveBeenCalledTimes(1);
-  expect(props.addCategory).toHaveBeenCalledWith(InputTextValue.trim());
-  expect(props.setNumberOfGifs).toHaveBeenCalledTimes(1);
-  expect(props.setNumberOfGifs).toHaveBeenCalledWith(props.numberOfGifs);
-  expect(inputText).toHaveValue("");
+      expect(props.addCategory).toHaveBeenCalledTimes(1);
+      expect(props.addCategory).toHaveBeenCalledWith(InputTextValue.trim());
+      expect(props.setNumberOfGifs).toHaveBeenCalledTimes(1);
+      expect(props.setNumberOfGifs).toHaveBeenCalledWith(props.numberOfGifs);
+      expect(inputText).toHaveValue("");
+    });
+  });
 });

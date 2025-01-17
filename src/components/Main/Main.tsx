@@ -69,8 +69,8 @@ export const Main = (): JSX.Element => {
   };
 
   return (
-    <main>
-      <section className="gifs_container">
+    <main className="main">
+      <section className="gifs__wrapper">
         {/*Titulo*/}
         <h1>Die GifApp</h1>
 
@@ -82,7 +82,7 @@ export const Main = (): JSX.Element => {
         ></AddCategory>
         {/* Listado de Gif */}
 
-        <article className="gifs_container_options">
+        <article className="gifs__options">
           <OptionBtn
             description="REMOVE ALL CATEGORIES"
             onClick={handleRemoveAllCategories}
@@ -106,8 +106,8 @@ export const Main = (): JSX.Element => {
       </section>
 
       {showImg.src && showImg.alt && (
-        <section className="showGif_container" ref={containerImage}>
-          <article className="showGif_container_center">
+        <section className="gif__modal" ref={containerImage}>
+          <article className="gif__modal__wrapper">
             <img src={showImg.src} alt={showImg.alt}></img>
             <button onClick={handleCloseModalImage} aria-label="close modal">
               X

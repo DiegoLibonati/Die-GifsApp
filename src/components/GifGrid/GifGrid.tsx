@@ -20,8 +20,8 @@ export const GifGrid = ({
   const { images, loading } = useFetchGif(category, numberOfGifs);
 
   return (
-    <article className="gifs_container_category" id={category}>
-      <div className="gifs_container_category_title">
+    <article className="gifs__category" id={category}>
+      <div className="gifs__category__title">
         <h3>{category}</h3>
         <button
           onClick={() => handleDeleteCategory(category)}
@@ -31,7 +31,7 @@ export const GifGrid = ({
         </button>
       </div>
 
-      <ol className="gifs_container_category_list">
+      <ol className="gifs__category__list">
         {loading ? (
           <div className="spinner"></div>
         ) : (
