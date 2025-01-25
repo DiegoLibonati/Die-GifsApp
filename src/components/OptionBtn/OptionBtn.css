@@ -1,0 +1,20 @@
+.option-btn {
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  font-size: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 1s;
+  margin: 1rem;
+}
+
+.option-btn:hover {
+  background-color: var(--secondary-color-hover);
+  transition: background-color 1s;
+}
+
+.option-btn:active {
+  transform: scale(0.9);
+}

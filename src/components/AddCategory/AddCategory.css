@@ -1,0 +1,99 @@
+.add-category-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100%-1rem);
+  height: auto;
+  margin: 1rem;
+}
+
+.add-category-wrapper__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 95%;
+  height: auto;
+}
+
+.add-category-wrapper__form-input-text {
+  width: 15rem;
+  outline: none;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--primary-int-color), 0.6054796918767507) 0%,
+    rgba(var(--secondary-int-color), 0.4906337535014006) 23%
+  );
+  border: none;
+  height: 4rem;
+  border-bottom: 0.2rem solid rgba(var(--secondary-int-color), 0.5);
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--primary-color);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.add-category-wrapper__form-input-number {
+  width: 5rem;
+  outline: none;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--primary-int-color), 0.6054796918767507) 0%,
+    rgba(var(--secondary-int-color), 0.4906337535014006) 23%
+  );
+  border: none;
+  height: 4rem;
+  border-bottom: 0.2rem solid rgba(var(--secondary-int-color), 0.5);
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--primary-color);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.add-category-wrapper__form-btn-go {
+  padding: 1rem;
+  width: 20rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 1s;
+  height: 100%;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+.add-category-wrapper__form-btn-go:hover {
+  background-color: var(--secondary-color-hover);
+  transition: background-color 1s;
+}
+
+.add-category-wrapper__form-btn-go:active {
+  transform: scale(0.9);
+}
+
+.add-category-wrapper__form-input-text::placeholder,
+.add-category-wrapper__form-input-number::placeholder {
+  color: var(--primary-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .add-category-wrapper__form-input-text {
+    width: 30rem;
+    height: auto;
+    font-size: 3rem;
+  }
+
+  .add-category-wrapper__form-input-number {
+    width: 10rem;
+    height: auto;
+    font-size: 3rem;
+  }
+
+  .add-category-wrapper__form-btn-go {
+    width: 40rem;
+  }
+}

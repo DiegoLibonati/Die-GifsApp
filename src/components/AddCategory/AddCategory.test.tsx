@@ -41,7 +41,7 @@ describe("AddCategory.tsx", () => {
       const form = container.querySelector("form");
       const inputText = screen.getByRole("textbox");
       const inputNumber = container.querySelector(
-        ".form__wrapper__gifs__input__number"
+        ".add-category-wrapper__form-input-number"
       ) as HTMLInputElement;
       const button = screen.getByRole("button", { name: /search gifs/i });
 
@@ -64,7 +64,7 @@ describe("AddCategory.tsx", () => {
 
       const inputText = screen.getByRole("textbox");
       const inputNumber = container.querySelector(
-        ".form__wrapper__gifs__input__number"
+        ".add-category-wrapper__form-input-number"
       ) as HTMLInputElement;
 
       expect(inputText).toBeInTheDocument();
@@ -101,7 +101,7 @@ describe("AddCategory.tsx", () => {
 
       const inputText = screen.getByRole("textbox");
       const inputNumber = container.querySelector(
-        ".form__wrapper__gifs__input__number"
+        ".add-category-wrapper__form-input-number"
       ) as HTMLInputElement;
       const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
 

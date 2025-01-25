@@ -32,3 +32,35 @@ body {
   width: 100%;
   background-color: var(--primary-color);
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary-color) var(--white-color);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  border: 0.3rem solid var(--white-color);
+}
+
+.spinner {
+  border: 0.4rem solid var(--secondary-color);
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border-left-color: var(--primary-color);
+  animation: spin 1s ease infinite;
+  margin: 1rem;
+}

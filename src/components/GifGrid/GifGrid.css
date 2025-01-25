@@ -1,0 +1,65 @@
+.gif-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  width: 90%;
+  height: auto;
+  margin: 1rem;
+}
+
+.gif-grid__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  width: 90%;
+  height: 7rem;
+}
+
+.gif-grid__header-title {
+  font-size: 3rem;
+  overflow: hidden;
+  width: 80%;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--secondary-color);
+}
+
+.gif-grid__header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+
+.gif-grid__header-btn-icon {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+.gif-grid__gifs {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  width: 90%;
+  height: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .gif-grid__header-title {
+    font-size: 5rem;
+    width: auto;
+  }
+
+  .gif-grid__header-btn-icon {
+    font-size: 4rem;
+  }
+}

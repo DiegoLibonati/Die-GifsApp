@@ -73,7 +73,7 @@ describe("Main.tsx", () => {
 
       const inputText = screen.getByRole("textbox");
       const inputNumber = container.querySelector(
-        ".form__wrapper__gifs__input__number"
+        ".add-category-wrapper__form-input-number"
       ) as HTMLInputElement;
       const btnSubmit = screen.getByRole("button", { name: /search gifs/ });
 
@@ -98,7 +98,7 @@ describe("Main.tsx", () => {
       const headingCategory = screen.getByRole("heading", { name: INPUT_TEXT });
       const lists = screen.getAllByRole("list");
       const gifLists = lists.find((list) =>
-        list.classList.contains("gifs__category__list")
+        list.classList.contains("gif-grid__gifs")
       );
 
       expect(headingCategory).toBeInTheDocument();
@@ -111,7 +111,7 @@ describe("Main.tsx", () => {
 
       const inputText = screen.getByRole("textbox");
       const inputNumber = container.querySelector(
-        ".form__wrapper__gifs__input__number"
+        ".add-category-wrapper__form-input-number"
       ) as HTMLInputElement;
       const btnSubmit = screen.getByRole("button", { name: /search gifs/ });
 
@@ -136,7 +136,7 @@ describe("Main.tsx", () => {
       const headingCategory = screen.getByRole("heading", { name: INPUT_TEXT });
       const lists = screen.getAllByRole("list");
       const gifLists = lists.find((list) =>
-        list.classList.contains("gifs__category__list")
+        list.classList.contains("gif-grid__gifs")
       );
 
       expect(headingCategory).toBeInTheDocument();
@@ -174,7 +174,7 @@ describe("Main.tsx", () => {
 
       const lists = screen.getAllByRole("list");
       const gifLists = lists.find((list) =>
-        list.classList.contains("gifs__category__list")
+        list.classList.contains("gif-grid__gifs")
       );
 
       expect(gifLists).toBeInTheDocument();
@@ -202,7 +202,7 @@ describe("Main.tsx", () => {
 
       const lists = screen.getAllByRole("list");
       const gifLists = lists.find((list) =>
-        list.classList.contains("gifs__category__list")
+        list.classList.contains("gif-grid__gifs")
       );
 
       expect(gifLists).toBeInTheDocument();
@@ -212,13 +212,13 @@ describe("Main.tsx", () => {
 
       const gif = gifLists?.children[0];
       const gifData = mockGifsResponse.data[0];
-      const modal = document.querySelector(".gif__modal") as HTMLElement;
+      const modal = document.querySelector(".gif-modal") as HTMLElement;
 
       expect(gif).toBeInTheDocument();
       expect(modal).not.toBeInTheDocument();
 
       const title = gif?.querySelector(
-        ".gif__card__title p"
+        ".gif-item__title-text"
       ) as HTMLParagraphElement;
 
       expect(title).toBeInTheDocument();
@@ -227,7 +227,7 @@ describe("Main.tsx", () => {
       await user.click(title!);
 
       const newConsultModal = document.querySelector(
-        ".gif__modal"
+        ".gif-modal"
       ) as HTMLElement;
       const imgModal = within(newConsultModal).getByRole("img");
       const buttonModal = within(newConsultModal).getByRole("button", {
@@ -242,7 +242,7 @@ describe("Main.tsx", () => {
 
       await user.click(buttonModal);
 
-      expect(document.querySelector(".gif__modal")).not.toBeInTheDocument();
+      expect(document.querySelector(".gif-modal")).not.toBeInTheDocument();
     });
   });
 });

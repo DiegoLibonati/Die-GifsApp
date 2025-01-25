@@ -105,7 +105,7 @@ describe("GifGrid.tsx", () => {
 
       const lists = screen.getAllByRole("list");
       const listGifs = lists.find((list) =>
-        list.classList.contains("gifs__category__list")
+        list.classList.contains("gif-grid__gifs")
       );
 
       expect(listGifs).toBeInTheDocument();

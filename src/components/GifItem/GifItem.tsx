@@ -1,3 +1,5 @@
+import "./GifItem.css";
+
 interface GifItemProps {
   title: string;
   url: string;
@@ -20,30 +22,55 @@ export const GifItem = ({
   handleOpenModalImage,
 }: GifItemProps): JSX.Element => {
   return (
-    <div className="gif__card">
-      <div className="gif__card__wrapper">
-        <img id="gif" src={url} alt={title}></img>
-        <div className="gif__card__wrapper__description">
-          <div className="gif__card__wrapper__description__header">
-            <img id="avatar" src={avatar} alt={avatarName}></img>
-            <h3>{avatarName}</h3>
+    <div className="gif-item">
+      <div className="gif-item__picture">
+        <img
+          id="gif"
+          src={url}
+          alt={title}
+          className="gif-item__picture-img"
+        ></img>
+        <div className="gif-item__picture-information">
+          <div className="gif-item__picture-information-author">
+            <img
+              id="avatar"
+              src={avatar}
+              alt={avatarName}
+              className="gif-item__picture-information-author-img"
+            ></img>
+            <h3 className="gif-item__picture-information-author-name">
+              {avatarName}
+            </h3>
           </div>
-          <p>{avatarDescription}</p>
+          <p className="gif-item__picture-information-description">
+            {avatarDescription}
+          </p>
           <a
             href={avatarProfileUrl}
             target="_blank"
             aria-label="go to user profile"
+            className="gif-item__picture-information-link"
           >
             Go to user Profile
           </a>
-          <a href={gifDownload} target="_blank" aria-label="download gif">
+          <a
+            href={gifDownload}
+            target="_blank"
+            aria-label="download gif"
+            className="gif-item__picture-information-link"
+          >
             Download
           </a>
         </div>
       </div>
 
-      <div className="gif__card__title">
-        <p onClick={() => handleOpenModalImage(url, title)}>{title}</p>
+      <div className="gif-item__title">
+        <p
+          onClick={() => handleOpenModalImage(url, title)}
+          className="gif-item__title-text"
+        >
+          {title}
+        </p>
       </div>
     </div>
   );

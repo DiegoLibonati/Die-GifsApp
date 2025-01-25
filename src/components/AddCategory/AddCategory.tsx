@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { InputForm } from "../InputForm/InputForm";
 
+import "./AddCategory.css";
+
 interface AddCategoryProps {
   numberOfGifs: number;
   setNumberOfGifs: (howManyGif: number) => void;
@@ -38,13 +40,13 @@ export const AddCategory = ({
   };
 
   return (
-    <article className="form__wrapper__gifs">
-      <form onSubmit={handleSubmit}>
+    <article className="add-category-wrapper">
+      <form onSubmit={handleSubmit} className="add-category-wrapper__form">
         <InputForm
           type="text"
           placeholder="Buscar Gif"
           value={inputValue}
-          className="form__wrapper__gifs__input__text"
+          className="add-category-wrapper__form-input-text"
           onChange={handleInputChange}
         ></InputForm>
 
@@ -52,13 +54,13 @@ export const AddCategory = ({
           type="number"
           placeholder=""
           value={numberOfGifs}
-          className="form__wrapper__gifs__input__number"
+          className="add-category-wrapper__form-input-number"
           onChange={handleInputNumberChange}
         ></InputForm>
 
         <button
           type="submit"
-          className="form__wrapper__gifs__btn"
+          className="add-category-wrapper__form-btn-go"
           aria-label="search gifs"
         >
           GO

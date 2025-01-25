@@ -4,6 +4,8 @@ import { useFetchGif } from "../../hooks/useFetchGif";
 
 import { BsTrash } from "react-icons/bs";
 
+import "./GifGrid.css";
+
 interface GifGridProps {
   category: string;
   numberOfGifs: number;
@@ -20,18 +22,23 @@ export const GifGrid = ({
   const { images, loading } = useFetchGif(category, numberOfGifs);
 
   return (
-    <article className="gifs__category" id={category}>
-      <div className="gifs__category__title">
-        <h3>{category}</h3>
+    <article className="gif-grid" id={category}>
+      <div className="gif-grid__header">
+        <h3 className="gif-grid__header-title">{category}</h3>
         <button
           onClick={() => handleDeleteCategory(category)}
           aria-label={`delete ${category}`}
+          className="gif-grid__header-btn"
         >
-          <BsTrash id="trash" pointerEvents="none"></BsTrash>
+          <BsTrash
+            id="trash"
+            pointerEvents="none"
+            className="gif-grid__header-btn-icon"
+          ></BsTrash>
         </button>
       </div>
 
-      <ol className="gifs__category__list">
+      <ol className="gif-grid__gifs">
         {loading ? (
           <div className="spinner"></div>
         ) : (
