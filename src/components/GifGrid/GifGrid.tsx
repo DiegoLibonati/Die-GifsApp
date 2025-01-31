@@ -24,16 +24,16 @@ export const GifGrid = ({
   return (
     <article className="gif-grid" id={category}>
       <div className="gif-grid__header">
-        <h3 className="gif-grid__header-title">{category}</h3>
+        <h3 className="gif-grid__title">{category}</h3>
         <button
           onClick={() => handleDeleteCategory(category)}
           aria-label={`delete ${category}`}
-          className="gif-grid__header-btn"
+          className="gif-grid__btn-delete"
         >
           <BsTrash
             id="trash"
             pointerEvents="none"
-            className="gif-grid__header-btn-icon"
+            className="gif-grid__btn-delete-icon"
           ></BsTrash>
         </button>
       </div>

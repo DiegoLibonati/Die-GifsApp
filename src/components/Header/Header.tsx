@@ -12,9 +12,9 @@ export const Header = (): JSX.Element => {
               href="#"
               aria-label="go to facebook"
               target="_blank"
-              className="header-wrapper__nav-list-item-link"
+              className="header-wrapper__link"
             >
-              <BsFacebook className="header-wrapper__nav-list-item-link-icon" />
+              <BsFacebook className="header-wrapper__link-icon" />
             </a>
           </li>
           <li className="header-wrapper__nav-list-item">
@@ -22,9 +22,9 @@ export const Header = (): JSX.Element => {
               href="#"
               aria-label="go to instagram"
               target="_blank"
-              className="header-wrapper__nav-list-item-link"
+              className="header-wrapper__link"
             >
-              <BsInstagram className="header-wrapper__nav-list-item-link-icon" />
+              <BsInstagram className="header-wrapper__link-icon" />
             </a>
           </li>
           <li className="header-wrapper__nav-list-item">
@@ -32,9 +32,9 @@ export const Header = (): JSX.Element => {
               href="#"
               aria-label="go to github"
               target="_blank"
-              className="header-wrapper__nav-list-item-link"
+              className="header-wrapper__link"
             >
-              <BsGithub className="header-wrapper__nav-list-item-link-icon" />
+              <BsGithub className="header-wrapper__link-icon" />
             </a>
           </li>
         </ul>

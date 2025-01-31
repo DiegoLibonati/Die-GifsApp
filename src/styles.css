@@ -51,14 +51,14 @@
   height: 20rem;
 }
 
-.gif-modal__content-img {
+.gif-modal__img {
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.gif-modal__content-close {
+.gif-modal__btn-close {
   position: absolute;
   top: 0;
   left: 0;

@@ -17,7 +17,7 @@
   height: 7rem;
 }
 
-.gif-grid__header-title {
+.gif-grid__title {
   font-size: 3rem;
   overflow: hidden;
   width: 80%;
@@ -27,7 +27,7 @@
   color: var(--secondary-color);
 }
 
-.gif-grid__header-btn {
+.gif-grid__btn-delete {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +39,7 @@
   width: auto;
 }
 
-.gif-grid__header-btn-icon {
+.gif-grid__btn-delete-icon {
   font-size: 2rem;
   color: var(--secondary-color);
 }
@@ -54,12 +54,12 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .gif-grid__header-title {
+  .gif-grid__title {
     font-size: 5rem;
     width: auto;
   }
 
-  .gif-grid__header-btn-icon {
+  .gif-grid__btn-delete-icon {
     font-size: 4rem;
   }
 }

@@ -30,23 +30,23 @@
   list-style: none;
 }
 
-.header-wrapper__nav-list-item-link {
+.header-wrapper__link {
   text-decoration: none;
 }
 
-.header-wrapper__nav-list-item-link-icon {
+.header-wrapper__link-icon {
   font-size: 2rem;
   color: var(--white-color);
   transition: color 1s;
 }
 
-.header-wrapper__nav-list-item-link-icon:hover {
+.header-wrapper__link-icon:hover {
   color: var(--primary-color);
   transition: color 1s;
 }
 
 @media only screen and (min-width: 768px) {
-  .header-wrapper__nav-list-item-link-icon {
+  .header-wrapper__link-icon {
     font-size: 2.5rem;
   }
 }

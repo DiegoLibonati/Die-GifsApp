@@ -15,7 +15,7 @@
   height: 30rem;
 }
 
-.gif-item__picture-img {
+.gif-item__img {
   width: 100%;
   height: 30rem;
   object-fit: cover;
@@ -24,7 +24,7 @@
   position: absolute;
 }
 
-.gif-item__picture-information {
+.gif-item__information {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,12 +40,12 @@
   transition: opacity 1s;
 }
 
-.gif-item__picture-information:hover {
+.gif-item__information:hover {
   opacity: 1;
   transition: opacity 1s;
 }
 
-.gif-item__picture-information-author {
+.gif-item__author {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -55,7 +55,7 @@
   width: 100%;
 }
 
-.gif-item__picture-information-author-img {
+.gif-item__avatar {
   height: 5rem;
   width: 5rem;
   border-radius: 1rem;
@@ -64,7 +64,7 @@
   opacity: 1;
 }
 
-.gif-item__picture-information-author-name {
+.gif-item__username {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,19 +75,19 @@
   margin-left: 1rem;
 }
 
-.gif-item__picture-information-description {
+.gif-item__description {
   font-size: 1.5rem;
   color: var(--white-color);
 }
 
-.gif-item__picture-information-link {
+.gif-item__link {
   position: relative;
   z-index: 600;
   font-size: 1.5rem;
   color: var(--white-color);
 }
 
-.gif-item__title {
+.gif-item__content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,7 +99,7 @@
   position: relative;
 }
 
-.gif-item__title-text {
+.gif-item__title {
   font-size: 2rem;
   overflow: hidden;
   width: 90%;
@@ -111,7 +111,7 @@
   transition: font-size 1s;
 }
 
-.gif-item__title-text:hover {
+.gif-item__title:hover {
   font-size: 2.2rem;
   transition: font-size 1s;
 }

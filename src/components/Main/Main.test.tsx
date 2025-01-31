@@ -218,7 +218,7 @@ describe("Main.tsx", () => {
       expect(modal).not.toBeInTheDocument();
 
       const title = gif?.querySelector(
-        ".gif-item__title-text"
+        ".gif-item__title"
       ) as HTMLParagraphElement;
 
       expect(title).toBeInTheDocument();

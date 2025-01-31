@@ -28,28 +28,28 @@ export const GifItem = ({
           id="gif"
           src={url}
           alt={title}
-          className="gif-item__picture-img"
+          className="gif-item__img"
         ></img>
-        <div className="gif-item__picture-information">
-          <div className="gif-item__picture-information-author">
+        <div className="gif-item__information">
+          <div className="gif-item__author">
             <img
               id="avatar"
               src={avatar}
               alt={avatarName}
-              className="gif-item__picture-information-author-img"
+              className="gif-item__avatar"
             ></img>
-            <h3 className="gif-item__picture-information-author-name">
+            <h3 className="gif-item__username">
               {avatarName}
             </h3>
           </div>
-          <p className="gif-item__picture-information-description">
+          <p className="gif-item__description">
             {avatarDescription}
           </p>
           <a
             href={avatarProfileUrl}
             target="_blank"
             aria-label="go to user profile"
-            className="gif-item__picture-information-link"
+            className="gif-item__link"
           >
             Go to user Profile
           </a>
@@ -57,17 +57,17 @@ export const GifItem = ({
             href={gifDownload}
             target="_blank"
             aria-label="download gif"
-            className="gif-item__picture-information-link"
+            className="gif-item__link"
           >
             Download
           </a>
         </div>
       </div>
 
-      <div className="gif-item__title">
+      <div className="gif-item__content">
         <p
           onClick={() => handleOpenModalImage(url, title)}
-          className="gif-item__title-text"
+          className="gif-item__title"
         >
           {title}
         </p>
