@@ -3,11 +3,11 @@ import user from "@testing-library/user-event";
 
 import { Main } from "./Main";
 
-import { createServer } from "../../tests/msw/server";
+import { createServer } from "../../../tests/msw/server";
 import {
   mockGifRandomCategoryResponse,
   mockGifsResponse,
-} from "../../tests/jest.constants";
+} from "../../../tests/jest.constants";
 
 type RenderComponent = {
   container: HTMLElement;

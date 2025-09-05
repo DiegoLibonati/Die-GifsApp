@@ -1,4 +1,4 @@
-import { Gif } from "../entities/entities";
+import { Gif } from "../src/entities/entities";
 
 export const mockGifsResponse: { data: Gif[] } = {
   data: [
