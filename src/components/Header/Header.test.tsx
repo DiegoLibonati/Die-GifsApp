@@ -1,6 +1,6 @@
 import { screen, render, within } from "@testing-library/react";
 
-import { Header } from "./Header";
+import { Header } from "@src/components/Header/Header";
 
 type RenderComponent = {
   container: HTMLElement;

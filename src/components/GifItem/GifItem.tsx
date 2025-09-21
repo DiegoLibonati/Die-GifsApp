@@ -1,4 +1,4 @@
-import "./GifItem.css";
+import "@src/components/GifItem/GifItem.css";
 
 interface GifItemProps {
   title: string;

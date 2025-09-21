@@ -1,6 +1,6 @@
-import { Gif, MinGif } from "../entities/entities";
+import { Gif, MinGif } from "@src/entities/entities";
 
-import { CONFIG } from "../constants/config";
+import { CONFIG } from "@src/constants/config";
 
 export const getGifs = async (
   category: string,

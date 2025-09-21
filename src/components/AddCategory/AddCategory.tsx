@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { InputForm } from "../InputForm/InputForm";
+import { InputForm } from "@src/components/InputForm/InputForm";
 
-import "./AddCategory.css";
+import "@src/components/AddCategory/AddCategory.css";
 
 interface AddCategoryProps {
   numberOfGifs: number;

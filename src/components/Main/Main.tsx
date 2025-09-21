@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
 
-import { OptionBtn } from "../OptionBtn/OptionBtn";
-import { AddCategory } from "../AddCategory/AddCategory";
-import { GifGrid } from "../GifGrid/GifGrid";
+import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
+import { AddCategory } from "@src/components/AddCategory/AddCategory";
+import { GifGrid } from "@src/components/GifGrid/GifGrid";
 
-import { getRandomGifsCategory } from "../../api/getRandomGifsCategory";
+import { getRandomGifsCategory } from "@src/api/getRandomGifsCategory";
 
 export const Main = (): JSX.Element => {
   const [gifState, setGifState] = useState<{

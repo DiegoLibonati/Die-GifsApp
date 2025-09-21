@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { MinGif } from "../entities/entities";
+import { MinGif } from "@src/entities/entities";
 
-import { getGifs } from "../api/getGifs";
+import { getGifs } from "@src/api/getGifs";
 
 type UseFetchGif = {
   images: MinGif[];

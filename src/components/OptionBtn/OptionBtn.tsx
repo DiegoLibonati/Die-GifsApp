@@ -1,4 +1,4 @@
-import "./OptionBtn.css";
+import "@src/components/OptionBtn/OptionBtn.css";
 
 interface OptionBtnProps {
   description: string;

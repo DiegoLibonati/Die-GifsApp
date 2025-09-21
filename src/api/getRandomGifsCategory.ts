@@ -1,6 +1,6 @@
-import { Gif } from "../entities/entities";
+import { Gif } from "@src/entities/entities";
 
-import { CONFIG } from "../constants/config";
+import { CONFIG } from "@src/constants/config";
 
 export const getRandomGifsCategory = async (): Promise<string> => {
   const API_KEY = CONFIG.VITE_API_KEY;

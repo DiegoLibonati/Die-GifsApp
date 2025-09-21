@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { AddCategory } from "./AddCategory";
+import { AddCategory } from "@src/components/AddCategory/AddCategory";
 
 type RenderComponent = {
   props: {

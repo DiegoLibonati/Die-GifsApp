@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { OptionBtn } from "./OptionBtn";
+import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
 
 type RenderComponent = {
   props: {

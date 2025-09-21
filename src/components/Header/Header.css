@@ -26,7 +26,7 @@
   justify-content: center;
   gap: 2rem;
   height: 6rem;
-  width: calc(100%-1rem);
+  width: calc(100% - 1rem);
   list-style: none;
 }
 

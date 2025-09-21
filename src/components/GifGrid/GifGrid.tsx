@@ -1,10 +1,10 @@
-import { GifItem } from "../GifItem/GifItem";
-
-import { useFetchGif } from "../../hooks/useFetchGif";
-
 import { BsTrash } from "react-icons/bs";
 
-import "./GifGrid.css";
+import { GifItem } from "@src/components/GifItem/GifItem";
+
+import { useFetchGif } from "@src/hooks/useFetchGif";
+
+import "@src/components/GifGrid/GifGrid.css";
 
 interface GifGridProps {
   category: string;

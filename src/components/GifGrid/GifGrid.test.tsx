@@ -1,10 +1,10 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { GifGrid } from "./GifGrid";
+import { GifGrid } from "@src/components/GifGrid/GifGrid";
 
-import { createServer } from "../../../tests/msw/server";
-import { mockGifsResponse } from "../../../tests/jest.constants";
+import { createServer } from "@tests/msw/server";
+import { mockGifsResponse } from "@tests/jest.constants";
 
 type RenderComponent = {
   props: {
