@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
-import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
 import { AddCategory } from "@src/components/AddCategory/AddCategory";
+import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
 import { GifGrid } from "@src/components/GifGrid/GifGrid";
 
-import { getRandomGifsCategory } from "@src/api/getRandomGifsCategory";
+import { getRandomGifsCategory } from "@src/api/get/getRandomGifsCategory";
 
-export const Main = (): JSX.Element => {
+import "@src/pages/GifsPage/GifsPage.css";
+
+export const GifsPage = (): JSX.Element => {
   const [gifState, setGifState] = useState<{
     categories: string[];
     howManyGif: number;

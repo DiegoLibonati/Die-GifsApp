@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 
+import { AddCategoryProps } from "@src/entities/props";
+
 import { InputForm } from "@src/components/InputForm/InputForm";
 
 import "@src/components/AddCategory/AddCategory.css";
-
-interface AddCategoryProps {
-  numberOfGifs: number;
-  setNumberOfGifs: (howManyGif: number) => void;
-  addCategory: (value: string) => void;
-}
 
 export const AddCategory = ({
   numberOfGifs,

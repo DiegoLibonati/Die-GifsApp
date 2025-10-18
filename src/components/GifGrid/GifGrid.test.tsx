@@ -1,6 +1,8 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
+import { GifGridProps } from "@src/entities/props";
+
 import { GifGrid } from "@src/components/GifGrid/GifGrid";
 
 import { createServer } from "@tests/msw/server";
@@ -8,11 +10,9 @@ import { mockGifsResponse } from "@tests/jest.constants";
 
 type RenderComponent = {
   props: {
-    category: string;
-    numberOfGifs: number;
     handleDeleteCategory: jest.Mock;
     handleOpenModalImage: jest.Mock;
-  };
+  } & GifGridProps;
   container: HTMLElement;
 };
 

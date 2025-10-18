@@ -1,16 +1,17 @@
 import React from "react";
 
 import { Header } from "@src/components/Header/Header";
-import { Main } from "@src/components/Main/Main";
 
-export const GifApp = (): JSX.Element => {
+import { GifsPage } from "@src/pages/GifsPage/GifsPage";
+
+export const App = (): JSX.Element => {
   return (
     <React.Fragment>
       {/* Header */}
       <Header></Header>
 
       {/* Main */}
-      <Main></Main>
+      <GifsPage></GifsPage>
     </React.Fragment>
   );
 };

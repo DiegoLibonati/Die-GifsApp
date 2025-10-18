@@ -1,14 +1,15 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
+import { AddCategoryProps } from "@src/entities/props";
+
 import { AddCategory } from "@src/components/AddCategory/AddCategory";
 
 type RenderComponent = {
   props: {
-    numberOfGifs: number;
     setNumberOfGifs: jest.Mock;
     addCategory: jest.Mock;
-  };
+  } & AddCategoryProps;
   container: HTMLElement;
 };
 

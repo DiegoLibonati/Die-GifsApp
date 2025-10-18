@@ -1,7 +1,7 @@
 import { screen, render, within } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { Main } from "@src/components/Main/Main";
+import { GifsPage } from "@src/pages/GifsPage/GifsPage";
 
 import { createServer } from "@tests/msw/server";
 import {
@@ -14,14 +14,14 @@ type RenderComponent = {
 };
 
 const renderComponent = (): RenderComponent => {
-  const { container } = render(<Main />);
+  const { container } = render(<GifsPage />);
 
   return {
     container: container,
   };
 };
 
-describe("Main.tsx", () => {
+describe("GifsPage.tsx", () => {
   describe("General Tests.", () => {
     const INPUT_TEXT = "Valuecieto";
     const INPUT_NUMBER = 15;

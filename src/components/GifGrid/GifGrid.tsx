@@ -1,17 +1,14 @@
+import { useEffect, useState } from "react";
 import { BsTrash } from "react-icons/bs";
+
+import { MinGif } from "@src/entities/app";
+import { GifGridProps } from "@src/entities/props";
 
 import { GifItem } from "@src/components/GifItem/GifItem";
 
-import { useFetchGif } from "@src/hooks/useFetchGif";
+import { getGifs } from "@src/api/get/getGifs";
 
 import "@src/components/GifGrid/GifGrid.css";
-
-interface GifGridProps {
-  category: string;
-  numberOfGifs: number;
-  handleDeleteCategory: (category: string) => void;
-  handleOpenModalImage: (src: string, alt: string) => void;
-}
 
 export const GifGrid = ({
   category,
@@ -19,7 +16,21 @@ export const GifGrid = ({
   handleDeleteCategory,
   handleOpenModalImage,
 }: GifGridProps): JSX.Element => {
-  const { images, loading } = useFetchGif(category, numberOfGifs);
+  const [gifs, setGifs] = useState<MinGif[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleGetGifs = async () => {
+    setLoading(true);
+
+    const newGifs = await getGifs(category, numberOfGifs);
+    setGifs(newGifs);
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    handleGetGifs();
+  }, []);
 
   return (
     <article className="gif-grid" id={category}>
@@ -42,16 +53,16 @@ export const GifGrid = ({
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          images.map((image) => (
+          gifs.map((gif) => (
             <GifItem
-              key={image.id}
-              title={image.title}
-              avatar={image.avatar}
-              avatarName={image.avatarName}
-              avatarDescription={image.avatarDescription}
-              avatarProfileUrl={image.avatarProfileUrl}
-              gifDownload={image.gifDownload}
-              url={image.url}
+              key={gif.id}
+              title={gif.title}
+              avatar={gif.avatar}
+              avatarName={gif.avatarName}
+              avatarDescription={gif.avatarDescription}
+              avatarProfileUrl={gif.avatarProfileUrl}
+              gifDownload={gif.gifDownload}
+              url={gif.url}
               handleOpenModalImage={handleOpenModalImage}
             ></GifItem>
           ))

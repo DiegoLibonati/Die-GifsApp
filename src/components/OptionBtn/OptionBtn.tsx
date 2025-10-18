@@ -1,9 +1,6 @@
-import "@src/components/OptionBtn/OptionBtn.css";
+import { OptionBtnProps } from "@src/entities/props";
 
-interface OptionBtnProps {
-  description: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+import "@src/components/OptionBtn/OptionBtn.css";
 
 export const OptionBtn = ({
   description,

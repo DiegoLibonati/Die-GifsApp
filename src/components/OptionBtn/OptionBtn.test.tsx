@@ -1,13 +1,14 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
+import { OptionBtnProps } from "@src/entities/props";
+
 import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
 
 type RenderComponent = {
   props: {
-    description: string;
     onClick: jest.Mock;
-  };
+  } & OptionBtnProps;
   container: HTMLElement;
 };
 

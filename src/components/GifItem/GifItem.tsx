@@ -1,15 +1,6 @@
-import "@src/components/GifItem/GifItem.css";
+import { GifItemProps } from "@src/entities/props";
 
-interface GifItemProps {
-  title: string;
-  url: string;
-  avatar: string;
-  avatarName: string;
-  avatarDescription: string;
-  avatarProfileUrl: string;
-  gifDownload: string;
-  handleOpenModalImage: (src: string, alt: string) => void;
-}
+import "@src/components/GifItem/GifItem.css";
 
 export const GifItem = ({
   title,
@@ -24,12 +15,7 @@ export const GifItem = ({
   return (
     <div className="gif-item">
       <div className="gif-item__picture">
-        <img
-          id="gif"
-          src={url}
-          alt={title}
-          className="gif-item__img"
-        ></img>
+        <img id="gif" src={url} alt={title} className="gif-item__img"></img>
         <div className="gif-item__information">
           <div className="gif-item__author">
             <img
@@ -38,13 +24,9 @@ export const GifItem = ({
               alt={avatarName}
               className="gif-item__avatar"
             ></img>
-            <h3 className="gif-item__username">
-              {avatarName}
-            </h3>
+            <h3 className="gif-item__username">{avatarName}</h3>
           </div>
-          <p className="gif-item__description">
-            {avatarDescription}
-          </p>
+          <p className="gif-item__description">{avatarDescription}</p>
           <a
             href={avatarProfileUrl}
             target="_blank"

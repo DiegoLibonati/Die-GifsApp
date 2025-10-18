@@ -1,6 +1,6 @@
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 
-import "./Header.css";
+import "@src/components/Header/Header.css";
 
 export const Header = (): JSX.Element => {
   return (

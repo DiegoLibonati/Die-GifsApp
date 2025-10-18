@@ -1,16 +1,14 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
+import { InputFormProps } from "@src/entities/props";
+
 import { InputForm } from "@src/components/InputForm/InputForm";
 
 type RenderComponent = {
   props: {
-    type: string;
-    placeholder: string;
-    value: string | number;
-    className: string;
     onChange: jest.Mock;
-  };
+  } & InputFormProps;
   container: HTMLElement;
 };
 

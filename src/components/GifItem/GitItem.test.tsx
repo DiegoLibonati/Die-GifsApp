@@ -1,19 +1,14 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
+import { GifItemProps } from "@src/entities/props";
+
 import { GifItem } from "@src/components/GifItem/GifItem";
 
 type RenderComponent = {
   props: {
-    title: string;
-    url: string;
-    avatar: string;
-    avatarName: string;
-    avatarDescription: string;
-    avatarProfileUrl: string;
-    gifDownload: string;
     handleOpenModalImage: jest.Mock;
-  };
+  } & GifItemProps;
   container: HTMLElement;
 };
 

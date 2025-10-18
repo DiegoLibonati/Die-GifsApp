@@ -1,10 +1,4 @@
-interface InputFormProps {
-  type: string;
-  placeholder: string;
-  value: string | number;
-  className: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-}
+import { InputFormProps } from "@src/entities/props";
 
 export const InputForm = ({
   type,
