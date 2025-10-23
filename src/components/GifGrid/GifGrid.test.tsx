@@ -93,7 +93,7 @@ describe("GifGrid.tsx", () => {
       const buttonCategory = screen.getByRole("button", {
         name: `delete ${props.category}`,
       });
-      const spinner = container.querySelector(".spinner");
+      const spinner = container.querySelector<HTMLDivElement>(".spinner");
 
       expect(category).toBeInTheDocument();
       expect(buttonCategory).toBeInTheDocument();

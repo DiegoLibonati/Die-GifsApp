@@ -72,9 +72,9 @@ describe("GifsPage.tsx", () => {
       const { container } = renderComponent();
 
       const inputText = screen.getByRole("textbox");
-      const inputNumber = container.querySelector(
+      const inputNumber = container.querySelector<HTMLInputElement>(
         ".add-category-wrapper__form-input-number"
-      ) as HTMLInputElement;
+      );
       const btnSubmit = screen.getByRole("button", { name: /search gifs/ });
 
       expect(inputText).toBeInTheDocument();
@@ -87,8 +87,8 @@ describe("GifsPage.tsx", () => {
 
       expect(inputText).toHaveValue(INPUT_TEXT);
 
-      await user.clear(inputNumber);
-      await user.click(inputNumber);
+      await user.clear(inputNumber!);
+      await user.click(inputNumber!);
       await user.keyboard(String(INPUT_NUMBER));
 
       expect(inputNumber).toHaveValue(INPUT_NUMBER);
@@ -110,9 +110,9 @@ describe("GifsPage.tsx", () => {
       const { container } = renderComponent();
 
       const inputText = screen.getByRole("textbox");
-      const inputNumber = container.querySelector(
+      const inputNumber = container.querySelector<HTMLInputElement>(
         ".add-category-wrapper__form-input-number"
-      ) as HTMLInputElement;
+      );
       const btnSubmit = screen.getByRole("button", { name: /search gifs/ });
 
       expect(inputText).toBeInTheDocument();
@@ -125,8 +125,8 @@ describe("GifsPage.tsx", () => {
 
       expect(inputText).toHaveValue(INPUT_TEXT);
 
-      await user.clear(inputNumber);
-      await user.click(inputNumber);
+      await user.clear(inputNumber!);
+      await user.click(inputNumber!);
       await user.keyboard(String(INPUT_NUMBER));
 
       expect(inputNumber).toHaveValue(INPUT_NUMBER);
@@ -212,25 +212,22 @@ describe("GifsPage.tsx", () => {
 
       const gif = gifLists?.children[0];
       const gifData = mockGifsResponse.data[0];
-      const modal = document.querySelector(".gif-modal") as HTMLElement;
+      const modal = document.querySelector<HTMLElement>(".gif-modal");
 
       expect(gif).toBeInTheDocument();
       expect(modal).not.toBeInTheDocument();
 
-      const title = gif?.querySelector(
-        ".gif-item__title"
-      ) as HTMLParagraphElement;
+      const title =
+        gif?.querySelector<HTMLParagraphElement>(".gif-item__title");
 
       expect(title).toBeInTheDocument();
       expect(title).toHaveTextContent(gifData.title);
 
       await user.click(title!);
 
-      const newConsultModal = document.querySelector(
-        ".gif-modal"
-      ) as HTMLElement;
-      const imgModal = within(newConsultModal).getByRole("img");
-      const buttonModal = within(newConsultModal).getByRole("button", {
+      const newConsultModal = document.querySelector<HTMLElement>(".gif-modal");
+      const imgModal = within(newConsultModal!).getByRole("img");
+      const buttonModal = within(newConsultModal!).getByRole("button", {
         name: /close modal/i,
       });
 
@@ -242,7 +239,9 @@ describe("GifsPage.tsx", () => {
 
       await user.click(buttonModal);
 
-      expect(document.querySelector(".gif-modal")).not.toBeInTheDocument();
+      expect(
+        document.querySelector<HTMLElement>(".gif-modal")
+      ).not.toBeInTheDocument();
     });
   });
 });

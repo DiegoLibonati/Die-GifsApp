@@ -19,7 +19,7 @@ describe("Header.tsx", () => {
     test("It must render the application header with the three links to redirect.", () => {
       const { container } = renderComponent();
 
-      const header = container.querySelector(".header-wrapper");
+      const header = container.querySelector<HTMLElement>(".header-wrapper");
       const nav = screen.getByRole("navigation");
       const list = screen.getByRole("list");
       const listItems = screen.getAllByRole("listitem");

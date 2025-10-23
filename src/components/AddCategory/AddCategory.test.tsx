@@ -39,11 +39,11 @@ describe("AddCategory.tsx", () => {
     test("It must render the form with the inputs and the submit button.", () => {
       const { container, props } = renderComponent();
 
-      const form = container.querySelector("form");
+      const form = container.querySelector<HTMLFormElement>("form");
       const inputText = screen.getByRole("textbox");
-      const inputNumber = container.querySelector(
+      const inputNumber = container.querySelector<HTMLInputElement>(
         ".add-category-wrapper__form-input-number"
-      ) as HTMLInputElement;
+      );
       const button = screen.getByRole("button", { name: /search gifs/i });
 
       expect(form).toBeInTheDocument();
@@ -64,9 +64,9 @@ describe("AddCategory.tsx", () => {
       const { container, props } = renderComponent();
 
       const inputText = screen.getByRole("textbox");
-      const inputNumber = container.querySelector(
+      const inputNumber = container.querySelector<HTMLInputElement>(
         ".add-category-wrapper__form-input-number"
-      ) as HTMLInputElement;
+      );
 
       expect(inputText).toBeInTheDocument();
       expect(inputNumber).toBeInTheDocument();
@@ -101,9 +101,9 @@ describe("AddCategory.tsx", () => {
       const { container, props } = renderComponent();
 
       const inputText = screen.getByRole("textbox");
-      const inputNumber = container.querySelector(
+      const inputNumber = container.querySelector<HTMLInputElement>(
         ".add-category-wrapper__form-input-number"
-      ) as HTMLInputElement;
+      );
       const buttonSubmit = screen.getByRole("button", { name: /search gifs/i });
 
       expect(inputText).toBeInTheDocument();
