@@ -40,9 +40,10 @@ export const GifsPage = (): JSX.Element => {
   };
 
   const handleSurprise = async (): Promise<void> => {
-    const getTitle = await getRandomGifsCategory();
+    const response = await getRandomGifsCategory();
+    const title = response.data.title
 
-    const newTitle = getTitle.split("by")[0];
+    const newTitle = title.split("by")[0];
 
     if (!newTitle.trim()) return handleSurprise();
 

@@ -22,7 +22,20 @@ export const GifGrid = ({
   const handleGetGifs = async () => {
     setLoading(true);
 
-    const newGifs = await getGifs(category, numberOfGifs);
+    const response = await getGifs(category, numberOfGifs);
+    const gifs = response.data;
+
+    const newGifs = gifs.map((img) => ({
+      id: img.id,
+      title: img.title,
+      url: img.images.original.url,
+      avatar: img.user?.avatar_url ?? "It is a private profile",
+      avatarName: img.user?.username ?? "It is a private profile",
+      avatarDescription: img.user?.description ?? "It is a private profile",
+      avatarProfileUrl: img.user?.profile_url ?? "#",
+      gifDownload: img.images.original.webp,
+    }));
+
     setGifs(newGifs);
 
     setLoading(false);
