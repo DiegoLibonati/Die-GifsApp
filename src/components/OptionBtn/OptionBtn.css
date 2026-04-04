@@ -1,13 +1,13 @@
 .option-btn {
-  padding: 1rem;
+  padding: 0.625rem;
   background-color: var(--color-secondary);
   color: var(--color-primary);
   border: none;
-  font-size: 2rem;
-  border-radius: 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.625rem;
   cursor: pointer;
   transition: background-color 1s;
-  margin: 1rem;
+  margin: 0.625rem;
 }
 
 .option-btn:hover {

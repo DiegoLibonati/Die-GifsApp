@@ -13,7 +13,17 @@
 
   /* Typography */
   --font-family-primary: "Rajdhani", Helvetica, sans-serif;
-  --font-size-base: 10px;
+  --font-size-base: 16px;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
 }
 
 *,
@@ -72,7 +82,7 @@ a {
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 1.6rem;
+  width: 1rem;
 }
 
 *::-webkit-scrollbar-track {
@@ -81,16 +91,16 @@ a {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
-  border-radius: 1rem;
-  border: 0.3rem solid var(--color-white);
+  border-radius: 0.625rem;
+  border: 0.1875rem solid var(--color-white);
 }
 
 .spinner {
-  border: 0.4rem solid var(--color-secondary);
-  width: 3.6rem;
-  height: 3.6rem;
+  border: 0.25rem solid var(--color-secondary);
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   border-left-color: var(--color-primary);
   animation: spin 1s ease infinite;
-  margin: 1rem;
+  margin: 0.625rem;
 }

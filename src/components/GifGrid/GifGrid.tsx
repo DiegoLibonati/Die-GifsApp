@@ -51,7 +51,7 @@ const GifGrid = ({
         <h3 className="gif-grid__title">{category}</h3>
         <button
           onClick={() => handleDeleteCategory(category)}
-          aria-label={`delete ${category}`}
+          aria-label={`Delete "${category}" category`}
           className="gif-grid__btn-delete"
         >
           <BsTrash id="trash" pointerEvents="none" className="gif-grid__btn-delete-icon"></BsTrash>

@@ -49,7 +49,7 @@ const AddCategory = ({ numberOfGifs, addCategory, setNumberOfGifs }: AddCategory
         <button
           type="submit"
           className="add-category-wrapper__form-btn-go"
-          aria-label="search gifs"
+          aria-label="Search GIFs by category"
         >
           GO
         </button>

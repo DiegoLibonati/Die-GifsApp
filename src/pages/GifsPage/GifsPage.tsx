@@ -107,7 +107,7 @@ const GifsPage = () => {
             <img src={showImg.src} alt={showImg.alt} className="gif-modal__img"></img>
             <button
               onClick={handleCloseModalImage}
-              aria-label="close modal"
+              aria-label="Close GIF preview"
               className="gif-modal__btn-close"
             >
               X

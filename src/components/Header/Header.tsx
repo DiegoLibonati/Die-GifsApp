@@ -10,7 +10,7 @@ const Header = () => {
           <li className="header-wrapper__nav-list-item">
             <a
               href="#"
-              aria-label="go to facebook"
+              aria-label="Visit Facebook page"
               target="_blank"
               className="header-wrapper__link"
             >
@@ -20,7 +20,7 @@ const Header = () => {
           <li className="header-wrapper__nav-list-item">
             <a
               href="#"
-              aria-label="go to instagram"
+              aria-label="Visit Instagram page"
               target="_blank"
               className="header-wrapper__link"
             >
@@ -28,7 +28,12 @@ const Header = () => {
             </a>
           </li>
           <li className="header-wrapper__nav-list-item">
-            <a href="#" aria-label="go to github" target="_blank" className="header-wrapper__link">
+            <a
+              href="#"
+              aria-label="Visit GitHub repository"
+              target="_blank"
+              className="header-wrapper__link"
+            >
               <BsGithub className="header-wrapper__link-icon" />
             </a>
           </li>

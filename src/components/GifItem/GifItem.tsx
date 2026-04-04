@@ -25,7 +25,7 @@ const GifItem = ({
           <a
             href={avatarProfileUrl}
             target="_blank"
-            aria-label="go to user profile"
+            aria-label={`Visit ${avatarName}'s Giphy profile`}
             className="gif-item__link"
           >
             Go to user Profile
@@ -33,7 +33,7 @@ const GifItem = ({
           <a
             href={gifDownload}
             target="_blank"
-            aria-label="download gif"
+            aria-label={`Download "${title}" GIF`}
             className="gif-item__link"
           >
             Download
