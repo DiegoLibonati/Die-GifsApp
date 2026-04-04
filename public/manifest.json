@@ -1,0 +1,21 @@
+{
+  "name": "Die Gifs",
+  "short_name": "Die Gifs",
+  "description": "I made a web application that allows the user to search for gifs. The same user will be able to enter the name of a category by the input, when pressing go, it will search through an API the amount of gifs previously selected from that specific category. Of that category will appear the name and also you can delete it, there is also a button to delete all the categories and if you click on the surprise button it makes a random search of that API and it will bring a random category. If you click on a gif you will be able to see that gif in a modal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

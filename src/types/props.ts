@@ -1,7 +1,7 @@
-interface DefaultProps {
-  className?: string;
-  children?: React.ReactNode;
-}
+// interface DefaultProps {
+//   className?: string;
+//   children?: React.ReactNode;
+// }
 
 export interface AddCategoryProps {
   numberOfGifs: number;

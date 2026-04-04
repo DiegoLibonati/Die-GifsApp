@@ -1,18 +1,13 @@
-import { OptionBtnProps } from "@src/entities/props";
+import { OptionBtnProps } from "@/types/props";
 
-import "@src/components/OptionBtn/OptionBtn.css";
+import "@/components/OptionBtn/OptionBtn.css";
 
-export const OptionBtn = ({
-  description,
-  onClick,
-}: OptionBtnProps): JSX.Element => {
+const OptionBtn = ({ description, onClick }: OptionBtnProps) => {
   return (
-    <button
-      onClick={onClick}
-      aria-label={`${description} button`}
-      className="option-btn"
-    >
+    <button onClick={onClick} aria-label={`${description} button`} className="option-btn">
       {description}
     </button>
   );
 };
+
+export default OptionBtn;

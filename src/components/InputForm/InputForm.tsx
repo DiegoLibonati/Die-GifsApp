@@ -1,12 +1,6 @@
-import { InputFormProps } from "@src/entities/props";
+import { InputFormProps } from "@/types/props";
 
-export const InputForm = ({
-  type,
-  placeholder,
-  value,
-  className,
-  onChange,
-}: InputFormProps): JSX.Element => {
+const InputForm = ({ type, placeholder, value, className, onChange }: InputFormProps) => {
   return (
     <input
       className={className}
@@ -17,3 +11,5 @@ export const InputForm = ({
     ></input>
   );
 };
+
+export default InputForm;

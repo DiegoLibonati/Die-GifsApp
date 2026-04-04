@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
+
+:root {
+  /* Colors */
+  --color-primary: #fecd45;
+  --color-primary-rgb: 254, 205, 69;
+  --color-secondary: #2568fb;
+  --color-secondary-rgb: 37, 104, 251;
+  --color-secondary-hover: #2569fbb0;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-black-rgb: 0, 0, 0;
+
+  /* Typography */
+  --font-family-primary: "Rajdhani", Helvetica, sans-serif;
+  --font-size-base: 10px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-family-primary);
+  background-color: var(--color-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-primary) var(--color-white);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 1rem;
+  border: 0.3rem solid var(--color-white);
+}
+
+.spinner {
+  border: 0.4rem solid var(--color-secondary);
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border-left-color: var(--color-primary);
+  animation: spin 1s ease infinite;
+  margin: 1rem;
+}

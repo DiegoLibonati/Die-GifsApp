@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { BsTrash } from "react-icons/bs";
 
-import { MinGif } from "@src/entities/app";
-import { GifGridProps } from "@src/entities/props";
+import { MinGif } from "@/types/app";
+import { GifGridProps } from "@/types/props";
 
-import { GifItem } from "@src/components/GifItem/GifItem";
+import GifItem from "@/components/GifItem/GifItem";
 
-import { getGifs } from "@src/api/get/getGifs";
+import gifService from "@/services/gifService";
 
-import "@src/components/GifGrid/GifGrid.css";
+import "@/components/GifGrid/GifGrid.css";
 
-export const GifGrid = ({
+const GifGrid = ({
   category,
   numberOfGifs,
   handleDeleteCategory,
   handleOpenModalImage,
-}: GifGridProps): JSX.Element => {
+}: GifGridProps) => {
   const [gifs, setGifs] = useState<MinGif[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleGetGifs = async () => {
     setLoading(true);
 
-    const response = await getGifs(category, numberOfGifs);
+    const response = await gifService.getAll(category, numberOfGifs);
     const gifs = response.data;
 
     const newGifs = gifs.map((img) => ({
@@ -54,11 +54,7 @@ export const GifGrid = ({
           aria-label={`delete ${category}`}
           className="gif-grid__btn-delete"
         >
-          <BsTrash
-            id="trash"
-            pointerEvents="none"
-            className="gif-grid__btn-delete-icon"
-          ></BsTrash>
+          <BsTrash id="trash" pointerEvents="none" className="gif-grid__btn-delete-icon"></BsTrash>
         </button>
       </div>
 
@@ -84,3 +80,5 @@ export const GifGrid = ({
     </article>
   );
 };
+
+export default GifGrid;

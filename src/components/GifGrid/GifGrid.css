@@ -24,7 +24,7 @@
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
 }
 
 .gif-grid__btn-delete {
@@ -41,7 +41,7 @@
 
 .gif-grid__btn-delete-icon {
   font-size: 2rem;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
 }
 
 .gif-grid__gifs {

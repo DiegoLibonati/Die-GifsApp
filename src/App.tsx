@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Header } from "@src/components/Header/Header";
+import Header from "@/components/Header/Header";
 
-import { GifsPage } from "@src/pages/GifsPage/GifsPage";
+import GifsPage from "@/pages/GifsPage/GifsPage";
 
-export const App = (): JSX.Element => {
+const App = () => {
   return (
     <React.Fragment>
       {/* Header */}
@@ -15,3 +15,5 @@ export const App = (): JSX.Element => {
     </React.Fragment>
   );
 };
+
+export default App;

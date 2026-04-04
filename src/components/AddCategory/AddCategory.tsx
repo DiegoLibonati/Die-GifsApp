@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 
-import { AddCategoryProps } from "@src/entities/props";
+import { AddCategoryProps } from "@/types/props";
 
-import { InputForm } from "@src/components/InputForm/InputForm";
+import InputForm from "@/components/InputForm/InputForm";
 
-import "@src/components/AddCategory/AddCategory.css";
+import "@/components/AddCategory/AddCategory.css";
 
-export const AddCategory = ({
-  numberOfGifs,
-  addCategory,
-  setNumberOfGifs,
-}: AddCategoryProps): JSX.Element => {
+const AddCategory = ({ numberOfGifs, addCategory, setNumberOfGifs }: AddCategoryProps) => {
   const [inputValue, setInputValue] = useState<string>("");
 
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
-    e
-  ): void => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
     setInputValue(e.target.value);
   };
 
-  const handleInputNumberChange: React.ChangeEventHandler<HTMLInputElement> = (
-    e
-  ): void => {
+  const handleInputNumberChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
     setNumberOfGifs(Number(e.target.value));
   };
 
@@ -65,3 +57,5 @@ export const AddCategory = ({
     </article>
   );
 };
+
+export default AddCategory;

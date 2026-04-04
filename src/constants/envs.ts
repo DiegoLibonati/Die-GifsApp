@@ -1,4 +1,4 @@
-import { Envs } from "@src/entities/envs";
+import { Envs } from "@/types/envs";
 
 const envs: Envs = {
   VITE_API_URL: import.meta.env.VITE_API_URL,

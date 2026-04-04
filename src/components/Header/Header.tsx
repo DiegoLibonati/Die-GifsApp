@@ -1,8 +1,8 @@
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 
-import "@src/components/Header/Header.css";
+import "@/components/Header/Header.css";
 
-export const Header = (): JSX.Element => {
+const Header = () => {
   return (
     <header className="header-wrapper">
       <nav className="header-wrapper__nav">
@@ -28,12 +28,7 @@ export const Header = (): JSX.Element => {
             </a>
           </li>
           <li className="header-wrapper__nav-list-item">
-            <a
-              href="#"
-              aria-label="go to github"
-              target="_blank"
-              className="header-wrapper__link"
-            >
+            <a href="#" aria-label="go to github" target="_blank" className="header-wrapper__link">
               <BsGithub className="header-wrapper__link-icon" />
             </a>
           </li>
@@ -42,3 +37,5 @@ export const Header = (): JSX.Element => {
     </header>
   );
 };
+
+export default Header;

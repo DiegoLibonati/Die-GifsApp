@@ -1,8 +1,8 @@
-import { GifItemProps } from "@src/entities/props";
+import { GifItemProps } from "@/types/props";
 
-import "@src/components/GifItem/GifItem.css";
+import "@/components/GifItem/GifItem.css";
 
-export const GifItem = ({
+const GifItem = ({
   title,
   url,
   avatar,
@@ -11,19 +11,14 @@ export const GifItem = ({
   avatarProfileUrl,
   gifDownload,
   handleOpenModalImage,
-}: GifItemProps): JSX.Element => {
+}: GifItemProps) => {
   return (
     <div className="gif-item">
       <div className="gif-item__picture">
         <img id="gif" src={url} alt={title} className="gif-item__img"></img>
         <div className="gif-item__information">
           <div className="gif-item__author">
-            <img
-              id="avatar"
-              src={avatar}
-              alt={avatarName}
-              className="gif-item__avatar"
-            ></img>
+            <img id="avatar" src={avatar} alt={avatarName} className="gif-item__avatar"></img>
             <h3 className="gif-item__username">{avatarName}</h3>
           </div>
           <p className="gif-item__description">{avatarDescription}</p>
@@ -47,13 +42,12 @@ export const GifItem = ({
       </div>
 
       <div className="gif-item__content">
-        <p
-          onClick={() => handleOpenModalImage(url, title)}
-          className="gif-item__title"
-        >
+        <p onClick={() => handleOpenModalImage(url, title)} className="gif-item__title">
           {title}
         </p>
       </div>
     </div>
   );
 };
+
+export default GifItem;

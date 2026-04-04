@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 
-import { AddCategory } from "@src/components/AddCategory/AddCategory";
-import { OptionBtn } from "@src/components/OptionBtn/OptionBtn";
-import { GifGrid } from "@src/components/GifGrid/GifGrid";
+import AddCategory from "@/components/AddCategory/AddCategory";
+import OptionBtn from "@/components/OptionBtn/OptionBtn";
+import GifGrid from "@/components/GifGrid/GifGrid";
 
-import { getRandomGifsCategory } from "@src/api/get/getRandomGifsCategory";
+import gifService from "@/services/gifService";
 
-import "@src/pages/GifsPage/GifsPage.css";
+import "@/pages/GifsPage/GifsPage.css";
 
-export const GifsPage = (): JSX.Element => {
+const GifsPage = () => {
   const [gifState, setGifState] = useState<{
     categories: string[];
     howManyGif: number;
@@ -40,10 +40,10 @@ export const GifsPage = (): JSX.Element => {
   };
 
   const handleSurprise = async (): Promise<void> => {
-    const response = await getRandomGifsCategory();
-    const title = response.data.title
+    const response = await gifService.getRandomGifsByCategory();
+    const title = response.data.title;
 
-    const newTitle = title.split("by")[0];
+    const newTitle = title.split("by")[0]!;
 
     if (!newTitle.trim()) return handleSurprise();
 
@@ -51,9 +51,7 @@ export const GifsPage = (): JSX.Element => {
   };
 
   const handleDeleteCategory = (category: string): void => {
-    const newCategoryList = gifState.categories.filter(
-      (cat) => cat !== category
-    );
+    const newCategoryList = gifState.categories.filter((cat) => cat !== category);
 
     setGifState((state) => ({ ...state, categories: newCategoryList }));
   };
@@ -62,9 +60,7 @@ export const GifsPage = (): JSX.Element => {
     setShowImg({ src: src, alt: alt });
   };
 
-  const handleCloseModalImage: React.MouseEventHandler<
-    HTMLButtonElement
-  > = (): void => {
+  const handleCloseModalImage: React.MouseEventHandler<HTMLButtonElement> = (): void => {
     setShowImg({
       src: "",
       alt: "",
@@ -91,10 +87,7 @@ export const GifsPage = (): JSX.Element => {
             onClick={handleRemoveAllCategories}
           ></OptionBtn>
 
-          <OptionBtn
-            description="SURPRISE"
-            onClick={handleSurprise}
-          ></OptionBtn>
+          <OptionBtn description="SURPRISE" onClick={handleSurprise}></OptionBtn>
         </article>
 
         {gifState.categories.map((category) => (
@@ -111,11 +104,7 @@ export const GifsPage = (): JSX.Element => {
       {showImg.src && showImg.alt && (
         <section className="gif-modal" ref={containerImage}>
           <article className="gif-modal__content">
-            <img
-              src={showImg.src}
-              alt={showImg.alt}
-              className="gif-modal__img"
-            ></img>
+            <img src={showImg.src} alt={showImg.alt} className="gif-modal__img"></img>
             <button
               onClick={handleCloseModalImage}
               aria-label="close modal"
@@ -129,3 +118,5 @@ export const GifsPage = (): JSX.Element => {
     </main>
   );
 };
+
+export default GifsPage;
