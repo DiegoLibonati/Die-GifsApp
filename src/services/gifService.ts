@@ -27,7 +27,19 @@ const gifService = {
 
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    return await response.json();
+    return (await response.json()) as {
+      data: Gif[];
+      meta: {
+        status: number;
+        msg: string;
+        response_id: string;
+      };
+      pagination: {
+        total_count: number;
+        count: number;
+        offset: number;
+      };
+    };
   },
   getRandomGifsByCategory: async (): Promise<{
     data: Gif;
@@ -41,7 +53,14 @@ const gifService = {
 
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    return await response.json();
+    return (await response.json()) as {
+      data: Gif;
+      meta: {
+        status: number;
+        msg: string;
+        response_id: string;
+      };
+    };
   },
 };
 

@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 
+import type { JSX } from "react";
+
 import AddCategory from "@/components/AddCategory/AddCategory";
 import OptionBtn from "@/components/OptionBtn/OptionBtn";
 import GifGrid from "@/components/GifGrid/GifGrid";
@@ -8,7 +10,7 @@ import gifService from "@/services/gifService";
 
 import "@/pages/GifsPage/GifsPage.css";
 
-const GifsPage = () => {
+const GifsPage = (): JSX.Element => {
   const [gifState, setGifState] = useState<{
     categories: string[];
     howManyGif: number;
@@ -16,7 +18,7 @@ const GifsPage = () => {
     categories: [],
     howManyGif: 10,
   });
-  const [showImg, setShowImg] = useState<{ src: string; alt: string }>({
+  const [showImg, setShowImg] = useState({
     src: "",
     alt: "",
   });
@@ -87,7 +89,12 @@ const GifsPage = () => {
             onClick={handleRemoveAllCategories}
           ></OptionBtn>
 
-          <OptionBtn description="SURPRISE" onClick={handleSurprise}></OptionBtn>
+          <OptionBtn
+            description="SURPRISE"
+            onClick={() => {
+              void handleSurprise();
+            }}
+          ></OptionBtn>
         </article>
 
         {gifState.categories.map((category) => (

@@ -1,11 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { GifItemProps } from "@/types/props";
+import type { GifItemProps } from "@/types/props";
 
 import GifItem from "@/components/GifItem/GifItem";
 
-type RenderComponent = { container: HTMLElement; props: GifItemProps };
+interface RenderComponent {
+  container: HTMLElement;
+  props: GifItemProps;
+}
 
 const mockHandleOpenModalImage = jest.fn();
 

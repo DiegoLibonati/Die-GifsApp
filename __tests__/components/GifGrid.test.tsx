@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { GifGridProps } from "@/types/props";
+import type { GifGridProps } from "@/types/props";
 
 import GifGrid from "@/components/GifGrid/GifGrid";
 
@@ -9,7 +9,10 @@ import gifService from "@/services/gifService";
 
 import { gifs } from "@tests/__mocks__/gifs.mock";
 
-type RenderComponent = { container: HTMLElement; props: GifGridProps };
+interface RenderComponent {
+  container: HTMLElement;
+  props: GifGridProps;
+}
 
 const mockHandleDeleteCategory = jest.fn();
 const mockHandleOpenModalImage = jest.fn();
@@ -55,7 +58,7 @@ describe("GifGrid", () => {
   it("should render gif items after loading", async () => {
     (gifService.getAll as jest.Mock).mockResolvedValueOnce(mockGetAllResponse);
     renderComponent();
-    expect(await screen.findByText(gifs[0].title)).toBeInTheDocument();
+    expect(await screen.findByText(gifs[0]!.title)).toBeInTheDocument();
   });
 
   it("should render the delete button with the correct aria-label", async () => {
@@ -78,10 +81,10 @@ describe("GifGrid", () => {
     const user = userEvent.setup();
     (gifService.getAll as jest.Mock).mockResolvedValueOnce(mockGetAllResponse);
     renderComponent();
-    await user.click(await screen.findByText(gifs[0].title));
+    await user.click(await screen.findByText(gifs[0]!.title));
     expect(mockHandleOpenModalImage).toHaveBeenCalledWith(
-      gifs[0].images.original.url,
-      gifs[0].title
+      gifs[0]!.images.original.url,
+      gifs[0]!.title
     );
   });
 });

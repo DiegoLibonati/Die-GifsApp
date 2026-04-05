@@ -1,8 +1,10 @@
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 
+import type { JSX } from "react";
+
 import "@/components/Header/Header.css";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header className="header-wrapper">
       <nav className="header-wrapper__nav">

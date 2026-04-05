@@ -1,11 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { AddCategoryProps } from "@/types/props";
+import type { AddCategoryProps } from "@/types/props";
 
 import AddCategory from "@/components/AddCategory/AddCategory";
 
-type RenderComponent = { container: HTMLElement; props: AddCategoryProps };
+interface RenderComponent {
+  container: HTMLElement;
+  props: AddCategoryProps;
+}
 
 const mockAddCategory = jest.fn();
 const mockSetNumberOfGifs = jest.fn();

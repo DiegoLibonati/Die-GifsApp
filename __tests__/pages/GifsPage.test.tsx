@@ -7,7 +7,9 @@ import gifService from "@/services/gifService";
 
 import { gifs } from "@tests/__mocks__/gifs.mock";
 
-type RenderPage = { container: HTMLElement };
+interface RenderPage {
+  container: HTMLElement;
+}
 
 jest.mock("@/services/gifService");
 
@@ -93,7 +95,7 @@ describe("GifsPage", () => {
     renderPage();
     await user.type(screen.getByRole("textbox"), "cats");
     await user.click(screen.getByRole("button", { name: "Search GIFs by category" }));
-    await user.click(await screen.findByText(gifs[0].title));
+    await user.click(await screen.findByText(gifs[0]!.title));
     expect(screen.getByRole("button", { name: "Close GIF preview" })).toBeInTheDocument();
   });
 
@@ -103,7 +105,7 @@ describe("GifsPage", () => {
     renderPage();
     await user.type(screen.getByRole("textbox"), "cats");
     await user.click(screen.getByRole("button", { name: "Search GIFs by category" }));
-    await user.click(await screen.findByText(gifs[0].title));
+    await user.click(await screen.findByText(gifs[0]!.title));
     await user.click(screen.getByRole("button", { name: "Close GIF preview" }));
     expect(screen.queryByRole("button", { name: "Close GIF preview" })).not.toBeInTheDocument();
   });

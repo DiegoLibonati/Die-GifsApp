@@ -1,4 +1,4 @@
-import { Gif } from "@/types/app";
+import type { Gif } from "@/types/app";
 
 export const gifs: Gif[] = [
   {

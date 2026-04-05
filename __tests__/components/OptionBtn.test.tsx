@@ -1,11 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { OptionBtnProps } from "@/types/props";
+import type { OptionBtnProps } from "@/types/props";
 
 import OptionBtn from "@/components/OptionBtn/OptionBtn";
 
-type RenderComponent = { container: HTMLElement };
+interface RenderComponent {
+  container: HTMLElement;
+}
 
 const mockOnClick = jest.fn();
 

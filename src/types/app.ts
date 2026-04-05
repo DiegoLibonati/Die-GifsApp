@@ -1,4 +1,4 @@
-export type Gif = {
+export interface Gif {
   type: string;
   id: string;
   url: string;
@@ -187,13 +187,13 @@ export type Gif = {
     };
   };
   user: {
-    avatar_url: string;
+    avatar_url?: string;
     banner_image: string;
     banner_url: string;
-    profile_url: string;
-    username: string;
+    profile_url?: string;
+    username?: string;
     display_name: string;
-    description: string;
+    description?: string;
     instagram_url: string;
     website_url: string;
     is_verified: boolean;
@@ -211,9 +211,9 @@ export type Gif = {
     };
   };
   alt_text: string;
-};
+}
 
-export type MinGif = {
+export interface MinGif {
   id: string;
   title: string;
   url: string;
@@ -222,4 +222,4 @@ export type MinGif = {
   avatarDescription: string;
   avatarProfileUrl: string;
   gifDownload: string;
-};
+}

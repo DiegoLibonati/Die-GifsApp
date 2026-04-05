@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { BsTrash } from "react-icons/bs";
 
-import { MinGif } from "@/types/app";
-import { GifGridProps } from "@/types/props";
+import type { JSX } from "react";
+import type { MinGif } from "@/types/app";
+import type { GifGridProps } from "@/types/props";
 
 import GifItem from "@/components/GifItem/GifItem";
 
@@ -15,11 +16,11 @@ const GifGrid = ({
   numberOfGifs,
   handleDeleteCategory,
   handleOpenModalImage,
-}: GifGridProps) => {
+}: GifGridProps): JSX.Element => {
   const [gifs, setGifs] = useState<MinGif[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleGetGifs = async () => {
+  const handleGetGifs = async (): Promise<void> => {
     setLoading(true);
 
     const response = await gifService.getAll(category, numberOfGifs);
@@ -29,10 +30,10 @@ const GifGrid = ({
       id: img.id,
       title: img.title,
       url: img.images.original.url,
-      avatar: img.user?.avatar_url ?? "It is a private profile",
-      avatarName: img.user?.username ?? "It is a private profile",
-      avatarDescription: img.user?.description ?? "It is a private profile",
-      avatarProfileUrl: img.user?.profile_url ?? "#",
+      avatar: img.user.avatar_url ?? "It is a private profile",
+      avatarName: img.user.username ?? "It is a private profile",
+      avatarDescription: img.user.description ?? "It is a private profile",
+      avatarProfileUrl: img.user.profile_url ?? "#",
       gifDownload: img.images.original.webp,
     }));
 
@@ -42,7 +43,7 @@ const GifGrid = ({
   };
 
   useEffect(() => {
-    handleGetGifs();
+    void handleGetGifs();
   }, []);
 
   return (
@@ -50,7 +51,9 @@ const GifGrid = ({
       <div className="gif-grid__header">
         <h3 className="gif-grid__title">{category}</h3>
         <button
-          onClick={() => handleDeleteCategory(category)}
+          onClick={() => {
+            handleDeleteCategory(category);
+          }}
           aria-label={`Delete "${category}" category`}
           className="gif-grid__btn-delete"
         >

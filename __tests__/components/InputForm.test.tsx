@@ -1,11 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { InputFormProps } from "@/types/props";
+import type { InputFormProps } from "@/types/props";
 
 import InputForm from "@/components/InputForm/InputForm";
 
-type RenderComponent = { container: HTMLElement };
+interface RenderComponent {
+  container: HTMLElement;
+}
 
 const mockOnChange = jest.fn();
 

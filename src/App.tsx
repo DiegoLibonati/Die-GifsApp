@@ -1,10 +1,12 @@
 import React from "react";
 
+import type { JSX } from "react";
+
 import Header from "@/components/Header/Header";
 
 import GifsPage from "@/pages/GifsPage/GifsPage";
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <React.Fragment>
       {/* Header */}

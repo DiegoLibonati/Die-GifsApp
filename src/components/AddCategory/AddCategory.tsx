@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
-import { AddCategoryProps } from "@/types/props";
+import type { JSX } from "react";
+import type { AddCategoryProps } from "@/types/props";
 
 import InputForm from "@/components/InputForm/InputForm";
 
 import "@/components/AddCategory/AddCategory.css";
 
-const AddCategory = ({ numberOfGifs, addCategory, setNumberOfGifs }: AddCategoryProps) => {
-  const [inputValue, setInputValue] = useState<string>("");
+const AddCategory = ({
+  numberOfGifs,
+  addCategory,
+  setNumberOfGifs,
+}: AddCategoryProps): JSX.Element => {
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
     setInputValue(e.target.value);
@@ -17,7 +22,7 @@ const AddCategory = ({ numberOfGifs, addCategory, setNumberOfGifs }: AddCategory
     setNumberOfGifs(Number(e.target.value));
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e): void => {
+  const handleSubmit: React.SubmitEventHandler<HTMLFormElement> = (e): void => {
     e.preventDefault();
 
     if (!inputValue.trim()) return;

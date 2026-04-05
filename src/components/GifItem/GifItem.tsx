@@ -1,4 +1,5 @@
-import { GifItemProps } from "@/types/props";
+import type { JSX } from "react";
+import type { GifItemProps } from "@/types/props";
 
 import "@/components/GifItem/GifItem.css";
 
@@ -11,7 +12,7 @@ const GifItem = ({
   avatarProfileUrl,
   gifDownload,
   handleOpenModalImage,
-}: GifItemProps) => {
+}: GifItemProps): JSX.Element => {
   return (
     <div className="gif-item">
       <div className="gif-item__picture">
@@ -42,7 +43,12 @@ const GifItem = ({
       </div>
 
       <div className="gif-item__content">
-        <p onClick={() => handleOpenModalImage(url, title)} className="gif-item__title">
+        <p
+          onClick={() => {
+            handleOpenModalImage(url, title);
+          }}
+          className="gif-item__title"
+        >
           {title}
         </p>
       </div>
