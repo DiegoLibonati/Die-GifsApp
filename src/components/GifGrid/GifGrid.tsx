@@ -30,10 +30,14 @@ const GifGrid = ({
       id: img.id,
       title: img.title,
       url: img.images.original.url,
-      avatar: img.user.avatar_url ?? "It is a private profile",
-      avatarName: img.user.username ?? "It is a private profile",
-      avatarDescription: img.user.description ?? "It is a private profile",
-      avatarProfileUrl: img.user.profile_url ?? "#",
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      avatar: img.user?.avatar_url ?? "It is a private profile",
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      avatarName: img.user?.username ?? "It is a private profile",
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      avatarDescription: img.user?.description ?? "It is a private profile",
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      avatarProfileUrl: img.user?.profile_url ?? "#",
       gifDownload: img.images.original.webp,
     }));
 
