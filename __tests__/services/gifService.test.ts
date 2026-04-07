@@ -11,10 +11,9 @@ describe("gifService", () => {
 
   describe("getAll", () => {
     it("should call fetch with the category and limit params", async () => {
-      const mockFetchJson = jest.fn();
       mockedFetch.mockResolvedValueOnce({
         ok: true,
-        json: mockFetchJson.mockResolvedValue({ data: gifs }),
+        json: jest.fn().mockResolvedValue({ data: gifs }),
       } as unknown as Response);
 
       await gifService.getAll("cats", 5);
@@ -24,7 +23,6 @@ describe("gifService", () => {
     });
 
     it("should return the parsed response", async () => {
-      const mockFetchJson = jest.fn();
       const mockResponse = {
         data: gifs,
         meta: { status: 200, msg: "OK", response_id: "1" },
@@ -32,7 +30,7 @@ describe("gifService", () => {
       };
       mockedFetch.mockResolvedValueOnce({
         ok: true,
-        json: mockFetchJson.mockResolvedValue(mockResponse),
+        json: jest.fn().mockResolvedValue(mockResponse),
       } as unknown as Response);
 
       const result = await gifService.getAll("cats", 5);
@@ -61,10 +59,9 @@ describe("gifService", () => {
 
   describe("getRandomGifsByCategory", () => {
     it("should call the random gifs endpoint", async () => {
-      const mockFetchJson = jest.fn();
       mockedFetch.mockResolvedValueOnce({
         ok: true,
-        json: mockFetchJson.mockResolvedValue({ data: gifs[0] }),
+        json: jest.fn().mockResolvedValue({ data: gifs[0] }),
       } as unknown as Response);
 
       await gifService.getRandomGifsByCategory();
@@ -73,14 +70,13 @@ describe("gifService", () => {
     });
 
     it("should return the parsed response", async () => {
-      const mockFetchJson = jest.fn();
       const mockResponse = {
         data: gifs[0],
         meta: { status: 200, msg: "OK", response_id: "1" },
       };
       mockedFetch.mockResolvedValueOnce({
         ok: true,
-        json: mockFetchJson.mockResolvedValue(mockResponse),
+        json: jest.fn().mockResolvedValue(mockResponse),
       } as unknown as Response);
 
       const result = await gifService.getRandomGifsByCategory();
