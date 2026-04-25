@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-.gifs-page {
+.gif-dive-page {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,14 +13,14 @@
   width: 100%;
 }
 
-.gifs-page__title {
+.gif-dive-page__title {
   font-size: 3.125rem;
   letter-spacing: 0.3125rem;
   color: var(--color-secondary);
   margin: 0.625rem;
 }
 
-.gifs-page__options {
+.gif-dive-page__options {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +87,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .gifs-page__title {
+  .gif-dive-page__title {
     font-size: 4.375rem;
   }
 

@@ -4,7 +4,7 @@ import type { JSX } from "react";
 
 import Header from "@/components/Header/Header";
 
-import GifsPage from "@/pages/GifsPage/GifsPage";
+import GifDivePage from "@/pages/GifDivePage/GifDivePage";
 
 const App = (): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ const App = (): JSX.Element => {
       <Header></Header>
 
       {/* Main */}
-      <GifsPage></GifsPage>
+      <GifDivePage></GifDivePage>
     </React.Fragment>
   );
 };

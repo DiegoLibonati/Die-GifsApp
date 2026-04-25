@@ -1,7 +1,7 @@
 {
-  "name": "Die Gifs",
-  "short_name": "Die Gifs",
-  "description": "I made a web application that allows the user to search for gifs. The same user will be able to enter the name of a category by the input, when pressing go, it will search through an API the amount of gifs previously selected from that specific category. Of that category will appear the name and also you can delete it, there is also a button to delete all the categories and if you click on the surprise button it makes a random search of that API and it will bring a random category. If you click on a gif you will be able to see that gif in a modal.",
+  "name": "Gif Dive",
+  "short_name": "Gif Dive",
+  "description": "Gif Dive is a single-page web application for discovering and browsing animated GIFs powered by the Giphy API.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

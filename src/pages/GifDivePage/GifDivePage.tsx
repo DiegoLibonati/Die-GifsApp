@@ -8,9 +8,9 @@ import GifGrid from "@/components/GifGrid/GifGrid";
 
 import gifService from "@/services/gifService";
 
-import "@/pages/GifsPage/GifsPage.css";
+import "@/pages/GifDivePage/GifDivePage.css";
 
-const GifsPage = (): JSX.Element => {
+const GifDivePage = (): JSX.Element => {
   const [gifState, setGifState] = useState<{
     categories: string[];
     howManyGif: number;
@@ -71,9 +71,9 @@ const GifsPage = (): JSX.Element => {
 
   return (
     <main className="main-app">
-      <section className="gifs-page">
+      <section className="gif-dive-page">
         {/*Titulo*/}
-        <h1 className="gifs-page__title">Die GifApp</h1>
+        <h1 className="gif-dive-page__title">Gif Dive</h1>
 
         {/*Input*/}
         <AddCategory
@@ -83,7 +83,7 @@ const GifsPage = (): JSX.Element => {
         ></AddCategory>
         {/* Listado de Gif */}
 
-        <article className="gifs-page__options">
+        <article className="gif-dive-page__options">
           <OptionBtn
             description="REMOVE ALL CATEGORIES"
             onClick={handleRemoveAllCategories}
@@ -126,4 +126,4 @@ const GifsPage = (): JSX.Element => {
   );
 };
 
-export default GifsPage;
+export default GifDivePage;

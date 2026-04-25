@@ -1,4 +1,4 @@
-# Die-GifsApp
+# Gif Dive
 
 ## Educational Purpose
 
@@ -17,7 +17,17 @@ The application will open automatically at `http://localhost:3000`
 
 ## Description
 
-I made a web application that allows the user to search for gifs. The same user will be able to enter the name of a category by the input, when pressing go, it will search through an API the amount of gifs previously selected from that specific category. Of that category will appear the name and also you can delete it, there is also a button to delete all the categories and if you click on the surprise button it makes a random search of that API and it will bring a random category. If you click on a gif you will be able to see that gif in a modal.
+**Gif Dive** is a single-page web application for discovering and browsing animated GIFs powered by the [Giphy API](https://developers.giphy.com/). It lets you build a personal dashboard of GIF categories in real time, each one populated with a configurable number of results fetched directly from Giphy.
+
+**Core features:**
+
+- **Category search** — Type any keyword into the search field and press GO. A new section for that category is immediately added to the page and filled with GIFs matching your query.
+- **Configurable result count** — A number input next to the search field controls how many GIFs are fetched per category. Change it before or between searches to get exactly the amount you want.
+- **Surprise mode** — Hit the SURPRISE button to let the app fetch a completely random GIF from Giphy, extract its category automatically, and add it to your board. Useful for discovering unexpected content without having to think of a keyword.
+- **Category management** — Each category card has its own delete button so you can remove individual sections when you are done with them. A global REMOVE ALL CATEGORIES button clears the entire board at once.
+- **Duplicate prevention** — Submitting a category that already exists on the board is silently ignored, keeping the layout clean.
+- **GIF preview modal** — Clicking the title of any GIF opens it in a full-screen modal overlay for a closer look. The modal closes with a single click on the X button, returning you to the board without losing any context.
+- **Author information** — Each GIF card surfaces the Giphy creator's avatar, username, and bio. A direct link to the creator's Giphy profile and a one-click WebP download link are included for every GIF.
 
 ## Technologies used
 
@@ -68,11 +78,7 @@ I made a web application that allows the user to search for gifs. The same user 
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/Die-GifsApp`](https://www.diegolibonati.com.ar/#/project/Die-GifsApp)
-
-## Video
-
-https://user-images.githubusercontent.com/99032604/199622812-e16c172a-1481-4a8d-bc93-bbfdfae5cbb1.mp4
+[`https://www.diegolibonati.com.ar/#/project/gif-dive`](https://www.diegolibonati.com.ar/#/project/gif-dive)
 
 ## Testing
 
